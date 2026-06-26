@@ -5,13 +5,13 @@
 # =============================================================================
 
 profile:
-  name: "John Doe"                    # Your full name (shown in the header + footer)
-  shortName: "J. Doe"                 # Optional: compact name for the header logo
-  role: "PhD Candidate in Computer Science"
-  affiliation: "University of Example"
-  email: "john.doe@example.edu"       # Shown as a contact link (leave "" to hide)
+  name: "Lavender Ayako"                    # Your full name (shown in the header + footer)
+  shortName: "Lavender A"                 # Optional: compact name for the header logo
+  role: "MSc Student"
+  affiliation: "University of Cape Town"
+  email: "ayakolavender8@gmail.com"       # Shown as a contact link (leave "" to hide)
   location: "Example City, USA"       # Optional
-  photo: "assets/profile.svg"         # Put your photo in public/assets/ and point
+  photo: "assets/picture.jpg"         # Put your photo in public/assets/ and point
                                       # here, e.g. "assets/profile.jpg". Leave "" to hide.
 
 # One-line summary of your research, shown large on the home page.
@@ -74,7 +74,7 @@ footer:
   showThemeToggle: true
 
 seo:
-  description: "Personal academic website of John Doe, PhD Candidate in Computer Science researching interpretable machine learning."
+  description: "Personal academic website of Lavender Ayako."
   # image: "assets/profile.svg"   # Optional social-share preview image
 
 # -----------------------------------------------------------------------------

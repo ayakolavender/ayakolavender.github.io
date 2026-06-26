@@ -12,10 +12,10 @@ showPhoto: true
 
 # Research-interest tags shown in the hero and the About block.
 interests:
-  - "Interpretable Machine Learning"
-  - "Trustworthy AI"
-  - "Natural Language Processing"
-  - "Causal Inference"
+  - "Power Systems"
+  - "Grid Optimization"
+  - "Renewable Energy"
+  - "IoT"
 
 # Which blocks to show on the home page (all also hide if their file is empty).
 blocks:
