@@ -1,0 +1,27 @@
+# =============================================================================
+#  THEME  ::  how the site looks. No CSS needed.
+# =============================================================================
+
+# Pick a preset look: classic | midnight | warm | ocean
+preset: classic
+
+# Default colour mode when a visitor first arrives: light | dark | system
+# ("system" follows the visitor's device setting). Visitors can always toggle.
+mode: system
+
+# -----------------------------------------------------------------------------
+#  Optional tweaks (delete a line to use the preset's default).
+# -----------------------------------------------------------------------------
+
+# Your accent colour, used for links, buttons, and highlights.
+# Any hex colour works. Choose a medium/strong colour (white text sits on it).
+accent: "#4f46e5"
+
+# Corner roundness for cards/buttons, e.g. 0px (sharp), 10px, 16px (round).
+radius: "14px"
+
+# Fonts: any family name from https://fonts.google.com
+# Sora gives a bold, modern feel; Inter keeps long text easy to read.
+font:
+  body: "Inter"
+  heading: "Sora"

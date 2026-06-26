@@ -1,0 +1,50 @@
+---
+import Icon from './Icon.astro';
+import { doiUrl, assetUrl } from '../lib/url';
+import type { LinkMap } from '../lib/schemas';
+
+interface Props {
+  links?: LinkMap;
+  class?: string;
+}
+const { links, class: className = '' } = Astro.props;
+
+const defs: [keyof LinkMap, string, string][] = [
+  ['pdf', 'PDF', 'file-text'],
+  ['arxiv', 'arXiv', 'file-text'],
+  ['doi', 'DOI', 'link'],
+  ['code', 'Code', 'code'],
+  ['demo', 'Demo', 'external-link'],
+  ['slides', 'Slides', 'slides'],
+  ['poster', 'Poster', 'file-text'],
+  ['video', 'Video', 'video'],
+  ['website', 'Website', 'globe'],
+  ['project', 'Project', 'external-link'],
+  ['data', 'Data', 'download'],
+  ['bibtex', 'BibTeX', 'file-text'],
+];
+
+const items: { label: string; icon: string; href: string }[] = [];
+if (links) {
+  for (const [key, label, icon] of defs) {
+    const v = links[key];
+    if (!v) continue;
+    const href = key === 'doi' ? doiUrl(v) : assetUrl(v) ?? v;
+    items.push({ label, icon, href });
+  }
+}
+---
+{items.length > 0 && (
+  <div class:list={['mt-3 flex flex-wrap gap-2', className]}>
+    {items.map((it) => (
+      <a
+        href={it.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted transition hover:text-accent hover:border-accent"
+      >
+        <Icon name={it.icon} size={14} /> {it.label}
+      </a>
+    ))}
+  </div>
+)}

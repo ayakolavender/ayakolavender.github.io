@@ -1,0 +1,75 @@
+---
+import { site, contact } from '../../lib/content';
+import Container from '../Container.astro';
+import PageHeader from '../PageHeader.astro';
+import Icon from '../Icon.astro';
+import { assetUrl } from '../../lib/url';
+
+const social = (site.social ?? {}) as Record<string, string | undefined>;
+const defs: [string, string, string][] = [
+  ['scholar', 'Google Scholar', 'scholar'],
+  ['github', 'GitHub', 'github'],
+  ['orcid', 'ORCID', 'orcid'],
+  ['linkedin', 'LinkedIn', 'linkedin'],
+  ['twitter', 'X (Twitter)', 'x'],
+  ['mastodon', 'Mastodon', 'globe'],
+  ['bluesky', 'Bluesky', 'globe'],
+  ['website', 'Website', 'globe'],
+  ['researchgate', 'ResearchGate', 'globe'],
+  ['semanticscholar', 'Semantic Scholar', 'globe'],
+  ['dblp', 'DBLP', 'globe'],
+  ['youtube', 'YouTube', 'video'],
+];
+
+const email = contact.email || site.profile.email;
+type Item = { label: string; icon: string; href: string; external: boolean };
+const items: Item[] = [];
+if (email) items.push({ label: 'Email', icon: 'mail', href: `mailto:${email}`, external: false });
+if (site.cv) items.push({ label: 'Download CV', icon: 'download', href: assetUrl(site.cv)!, external: true });
+for (const [k, label, icon] of defs) {
+  const u = social[k];
+  if (u) items.push({ label, icon, href: u, external: true });
+}
+for (const l of site.links ?? []) items.push({ label: l.label, icon: l.icon ?? 'link', href: l.url, external: true });
+
+const infoRows: { icon: string; label: string; value: string }[] = [];
+if (contact.office) infoRows.push({ icon: 'building', label: 'Office', value: contact.office });
+if (contact.address) infoRows.push({ icon: 'map-pin', label: 'Address', value: contact.address });
+if (contact.officeHours) infoRows.push({ icon: 'clock', label: 'Office hours', value: contact.officeHours });
+---
+<Container size="narrow" class="py-12 md:py-16">
+  <PageHeader title="Links" eyebrow="Connect" subtitle="All my links in one place." />
+
+  <div class="space-y-3">
+    {items.map((it) => (
+      <a
+        href={it.href}
+        target={it.external ? '_blank' : undefined}
+        rel={it.external ? 'noopener noreferrer' : undefined}
+        class="card group flex items-center gap-4 p-4 transition hover:-translate-y-0.5 hover:border-accent hover:shadow-sm"
+      >
+        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
+          <Icon name={it.icon} size={20} />
+        </span>
+        <span class="flex-1 font-semibold">{it.label}</span>
+        <Icon name="arrow-right" size={18} class="text-muted transition group-hover:translate-x-0.5 group-hover:text-accent" />
+      </a>
+    ))}
+  </div>
+
+  {infoRows.length > 0 && (
+    <div class="mt-8 space-y-3">
+      {infoRows.map((r) => (
+        <div class="flex items-start gap-3 text-sm">
+          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-surface-2 text-muted">
+            <Icon name={r.icon} size={15} />
+          </span>
+          <div>
+            <p class="text-xs uppercase tracking-wide text-muted">{r.label}</p>
+            <p>{r.value}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+</Container>

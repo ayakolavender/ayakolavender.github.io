@@ -1,0 +1,40 @@
+# =============================================================================
+#  HOME PAGE  ::  the landing page.
+#  The home page shows your hero, then a series of blocks. Turn any block off
+#  below, or just empty its content file and it disappears automatically.
+# =============================================================================
+
+# Small greeting above your name in the hero (optional).
+greeting: "Hi, I'm"
+
+# Show your photo in the hero? (Uses profile.photo from site.yml.)
+showPhoto: true
+
+# Research-interest tags shown in the hero and the About block.
+interests:
+  - "Interpretable Machine Learning"
+  - "Trustworthy AI"
+  - "Natural Language Processing"
+  - "Causal Inference"
+
+# Which blocks to show on the home page (all also hide if their file is empty).
+blocks:
+  about: true          # short bio (content/about.yml)
+  news: true           # dated News & Updates feed (content/news.yml)
+  experience: true     # positions / internships (content/experience.yml)
+  volunteering: true   # volunteering & leadership (content/volunteering.yml)
+  education: true       # education timeline (content/about.yml)
+  awards: true          # awards & honors (content/awards.yml)
+  publications: true    # selected (featured) publications (content/publications.yml)
+
+newsCount: 5            # how many recent news items to show on the home page
+publicationsCount: 3    # how many featured publications to show on the home page
+
+# Call-to-action banner at the very bottom of the home page (before the footer).
+# Uses your accent colour. Set show: false to hide it.
+cta:
+  show: true
+  title: "Want to work together?"
+  text: "I'm always open to collaborating on research projects, papers, and new ideas. Get in touch."
+  buttonLabel: "Send an Email"
+  # email: ""           # defaults to your site.yml email

@@ -1,0 +1,33 @@
+# =============================================================================
+#  WORKSHOPS & CONFERENCES  ::  events you attended, presented at, or organized.
+#  Newest first (by date) automatically.
+#  Fields: name (required), host, date, location, role, description, link.
+#  `role` is free text, e.g. Attended | Presented | Organized | Volunteer.
+# =============================================================================
+
+- name: "NeurIPS 2025"
+  host: "Conference on Neural Information Processing Systems"
+  date: 2025-12-09
+  location: "San Diego, USA"
+  role: "Presented"
+  description: "Presented a poster on causal probing at the main conference."
+
+- name: "Workshop on Interpretable Machine Learning"
+  host: "Co-located with NeurIPS 2025"
+  date: 2025-12-08
+  location: "San Diego, USA"
+  role: "Organized"
+  description: "Co-organized a full-day workshop with around 150 attendees."
+
+- name: "ICML 2025"
+  host: "International Conference on Machine Learning"
+  date: 2025-07-15
+  location: "Vienna, Austria"
+  role: "Attended"
+
+- name: "Summer School on Trustworthy AI"
+  host: "European Lab for Learning and Intelligent Systems"
+  date: 2024-08-01
+  location: "Lisbon, Portugal"
+  role: "Attended"
+  link: "#"

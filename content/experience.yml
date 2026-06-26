@@ -1,0 +1,29 @@
+# =============================================================================
+#  EXPERIENCE  ::  research/industry positions, internships.
+#  Use `highlights:` for bullet points under each role.
+# =============================================================================
+
+- role: "Research Intern"
+  organization: "Example Labs"
+  period: "Winter 2025 - 2026"
+  location: "Remote"
+  highlights:
+    - "Built reliable evaluation protocols for large language models within the Trustworthy AI team."
+    - "Shipped an internal benchmark now used across three research groups."
+    - "Co-authored a paper submitted to ICML 2026."
+
+- role: "Research Intern"
+  organization: "Sample Research"
+  period: "Summer 2024"
+  location: "New York, USA"
+  highlights:
+    - "Developed parameter-efficient fine-tuning methods for low-resource languages."
+    - "Improved task accuracy by 8% while using a fraction of the compute."
+    - "Work led to a first-author ACL publication."
+
+- role: "Undergraduate Research Assistant"
+  organization: "University of Sample"
+  period: "2021 - 2022"
+  highlights:
+    - "Built tooling for analysing attention patterns in transformer models."
+    - "Presented findings at the department's undergraduate research symposium."

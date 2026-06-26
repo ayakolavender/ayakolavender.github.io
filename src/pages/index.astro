@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import Hero from '../components/Hero.astro';
+import HomeSection from '../components/HomeSection.astro';
+import Timeline from '../components/Timeline.astro';
+import NewsList from '../components/NewsList.astro';
+import PublicationCard from '../components/PublicationCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+import Icon from '../components/Icon.astro';
+import {
+  home, about, news, publications, experience, awards, volunteering,
+} from '../lib/content';
+import { getVisibleSections, pathFor, type SectionId } from '../lib/sections';
+
+const nav = await getVisibleSections();
+const visible = (id: SectionId) => nav.some((s) => s.id === id);
+const b = home.blocks;
+
+const bio = Array.isArray(about.bio) ? about.bio : about.bio ? [about.bio] : [];
+
+const showAbout = b.about !== false && bio.length > 0;
+const showNews = b.news !== false && news.length > 0;
+const showExperience = b.experience !== false && experience.length > 0;
+const showVolunteering = b.volunteering !== false && volunteering.length > 0;
+const showEducation = b.education !== false && (about.education?.length ?? 0) > 0;
+const showAwards = b.awards !== false && awards.length > 0;
+const showPubs = b.publications !== false && publications.length > 0;
+
+const featured = publications.filter((p) => p.featured);
+const selected = (featured.length ? featured : publications).slice(0, home.publicationsCount ?? 3);
+
+const experienceItems = experience.map((e) => ({
+  title: e.role,
+  lead: e.organization,
+  meta: e.period,
+  sub: e.location,
+  description: e.description,
+  bullets: e.highlights,
+}));
+const educationItems = (about.education ?? []).map((ed) => ({
+  title: ed.degree,
+  lead: ed.institution,
+  meta: ed.year !== undefined ? String(ed.year) : undefined,
+  coursework: ed.coursework,
+  note: ed.thesis ? `Thesis: ${ed.thesis}` : ed.note,
+}));
+
+const awardIcon = (t?: string): string => {
+  const map: Record<string, string> = { grant: 'dollar-sign', fellowship: 'star', scholarship: 'graduation-cap' };
+  return (t && map[t]) || 'award';
+};
+---
+<BaseLayout>
+  <Container>
+    <Hero showPublications={visible('publications')} />
+
+    {showAbout && (
+      <HomeSection title="About">
+        <div class="max-w-2xl space-y-4 text-lg leading-relaxed">
+          {bio.map((para) => <p>{para}</p>)}
+        </div>
+      </HomeSection>
+    )}
+
+    {showNews && (
+      <HomeSection title="News & Updates" eyebrow="Latest">
+        <NewsList items={news} limit={home.newsCount ?? 5} />
+      </HomeSection>
+    )}
+
+    {showExperience && (
+      <HomeSection title="Experience" eyebrow="Where I've worked">
+        <Timeline items={experienceItems} />
+      </HomeSection>
+    )}
+
+    {showVolunteering && (
+      <HomeSection title="Volunteering & Leadership" eyebrow="Beyond research">
+        <ul class="grid gap-4 sm:grid-cols-2">
+          {volunteering.map((v) => (
+            <li class="card p-5">
+              <div class="flex items-baseline justify-between gap-2">
+                <h3 class="font-semibold leading-snug">{v.role}</h3>
+                {v.year && <span class="shrink-0 text-sm text-muted">{v.year}</span>}
+              </div>
+              {v.organization && <p class="mt-0.5 text-sm font-medium text-muted">{v.organization}</p>}
+              {v.description && <p class="mt-2 text-sm leading-relaxed text-muted">{v.description}</p>}
+            </li>
+          ))}
+        </ul>
+      </HomeSection>
+    )}
+
+    {showEducation && (
+      <HomeSection title="Education" eyebrow="Studies">
+        <Timeline items={educationItems} />
+      </HomeSection>
+    )}
+
+    {showAwards && (
+      <HomeSection title="Awards & Honors" eyebrow="Recognition">
+        <ul class="grid gap-3 sm:grid-cols-2">
+          {awards.map((a) => (
+            <li class="card flex items-start gap-3.5 p-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
+                <Icon name={awardIcon(a.type)} size={18} />
+              </div>
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-2">
+                  <h3 class="font-medium leading-snug">{a.title}</h3>
+                  {a.year && <span class="text-sm text-muted">{a.year}</span>}
+                </div>
+                {a.organization && <p class="text-sm text-muted">{a.organization}</p>}
+                {a.description && <p class="mt-1 text-sm text-muted">{a.description}</p>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </HomeSection>
+    )}
+
+    {showPubs && selected.length > 0 && (
+      <HomeSection
+        title="Selected Publications"
+        eyebrow="Research"
+        viewAllHref={visible('publications') ? pathFor('publications') : undefined}
+        viewAllLabel="All publications"
+      >
+        <div class="space-y-4">
+          {selected.map((pub) => <PublicationCard pub={pub} />)}
+        </div>
+      </HomeSection>
+    )}
+
+    <CallToAction />
+  </Container>
+</BaseLayout>

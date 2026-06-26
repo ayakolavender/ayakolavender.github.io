@@ -1,0 +1,80 @@
+---
+import { site } from '../lib/content';
+import { getVisibleSections } from '../lib/sections';
+import { withBase } from '../lib/url';
+import Icon from './Icon.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+const nav = await getVisibleSections();
+const showToggle = site.footer?.showThemeToggle !== false;
+const brand = site.profile.shortName || site.profile.name;
+const homeHref = withBase('/');
+
+const here = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const homeNorm = homeHref.replace(/\/+$/, '') || '/';
+const isActive = (path: string) => {
+  const p = path.replace(/\/+$/, '') || '/';
+  if (p === homeNorm) return here === homeNorm;
+  return here === p || here.startsWith(p + '/');
+};
+---
+<header class="sticky top-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md">
+  <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-3.5">
+    <a href={homeHref} class="font-serif text-lg font-bold tracking-tight transition hover:text-accent">
+      {brand}
+    </a>
+
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
+      {nav.map((item) => (
+        <a
+          href={item.path}
+          data-label={item.label}
+          aria-current={isActive(item.path) ? 'page' : undefined}
+          class="nav-link"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-2">
+      {showToggle && <ThemeToggle />}
+      <button
+        id="menu-btn"
+        type="button"
+        aria-label="Open menu"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted lg:hidden"
+      >
+        <Icon name="menu" size={18} />
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobile-menu" class="hidden border-t border-border px-5 pb-4 pt-2 lg:hidden" aria-label="Mobile">
+    {nav.map((item) => (
+      <a
+        href={item.path}
+        class:list={[
+          'flex items-center gap-3 rounded-md px-3 py-2.5 text-sm',
+          isActive(item.path) ? 'bg-accent-soft text-accent' : 'text-text hover:bg-surface-2',
+        ]}
+      >
+        <Icon name={item.icon} size={17} /> {item.label}
+      </a>
+    ))}
+  </nav>
+</header>
+<script is:inline>
+  (function () {
+    var btn = document.getElementById('menu-btn');
+    var menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var open = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+  })();
+</script>

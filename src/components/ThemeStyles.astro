@@ -1,0 +1,61 @@
+---
+/**
+ * Generates the theme CSS variables (light + dark) from content/theme.yml,
+ * loads the chosen Google Fonts, and sets the initial colour mode before paint
+ * (so there's no flash). Rendered inside <head> by BaseLayout.
+ */
+import { theme } from '../lib/content';
+import { presets, DEFAULT_PRESET, type Palette } from '../lib/presets';
+
+const preset = presets[theme.preset] ?? presets[DEFAULT_PRESET];
+const accent = theme.accent;
+const radius = theme.radius ?? '10px';
+const fontBody = theme.font?.body ?? preset.font.body;
+const fontHeading = theme.font?.heading ?? preset.font.heading;
+
+const palette = (p: Palette, override?: string) => {
+  const a = override || p.accent;
+  return [
+    `--bg:${p.bg}`,
+    `--surface:${p.surface}`,
+    `--surface-2:${p.surface2}`,
+    `--text:${p.text}`,
+    `--muted:${p.muted}`,
+    `--border:${p.border}`,
+    `--accent:${a}`,
+    `--accent-text:${p.accentText}`,
+    `--accent-soft:color-mix(in srgb, ${a} 12%, transparent)`,
+    `--ring:${a}`,
+  ].join(';');
+};
+
+const css =
+  `:root{${palette(preset.light, accent)};--radius:${radius};` +
+  `--font-body:'${fontBody}';--font-heading:'${fontHeading}'}` +
+  `html.dark{${palette(preset.dark, accent)}}`;
+
+const families = Array.from(new Set([fontBody, fontHeading]));
+const familyQuery = families
+  .map((f) => 'family=' + encodeURIComponent(f).replace(/%20/g, '+') + ':wght@400;500;600;700;800')
+  .join('&');
+const fontsHref = `https://fonts.googleapis.com/css2?${familyQuery}&display=swap`;
+
+const mode = theme.mode;
+---
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href={fontsHref} />
+<style is:inline set:html={css}></style>
+<script is:inline define:vars={{ mode }}>
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      var dark = stored
+        ? stored === 'dark'
+        : mode === 'dark' ||
+          (mode === 'system' &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches);
+      if (dark) document.documentElement.classList.add('dark');
+    } catch (e) {}
+  })();
+</script>

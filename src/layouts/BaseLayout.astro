@@ -1,0 +1,53 @@
+---
+import '../styles/global.css';
+import { site } from '../lib/content';
+import { assetUrl, withBase } from '../lib/url';
+import ThemeStyles from '../components/ThemeStyles.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+const { title, description, ogImage } = Astro.props;
+
+const name = site.profile.name;
+const pageTitle = title
+  ? `${title} · ${name}`
+  : `${name}${site.profile.role ? ` · ${site.profile.role}` : ''}`;
+const desc = description ?? site.seo?.description ?? site.tagline ?? '';
+const img = assetUrl(ogImage ?? site.seo?.image);
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <title>{pageTitle}</title>
+    {desc && <meta name="description" content={desc} />}
+    <meta property="og:title" content={pageTitle} />
+    {desc && <meta property="og:description" content={desc} />}
+    <meta property="og:type" content="website" />
+    {img && <meta property="og:image" content={img} />}
+    <meta name="twitter:card" content={img ? 'summary_large_image' : 'summary'} />
+    <link rel="canonical" href={canonical} />
+    <ThemeStyles />
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only rounded-md bg-accent px-4 py-2 text-accent-text focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60]"
+    >
+      Skip to content
+    </a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

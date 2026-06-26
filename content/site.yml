@@ -1,0 +1,85 @@
+# =============================================================================
+#  SITE  ::  your identity, links, and which pages appear.
+#  This is the most important file to edit. Everything here is safe to change.
+#  YAML tip: use spaces (never tabs) for indentation, and keep the alignment.
+# =============================================================================
+
+profile:
+  name: "John Doe"                    # Your full name (shown in the header + footer)
+  shortName: "J. Doe"                 # Optional: compact name for the header logo
+  role: "PhD Candidate in Computer Science"
+  affiliation: "University of Example"
+  email: "john.doe@example.edu"       # Shown as a contact link (leave "" to hide)
+  location: "Example City, USA"       # Optional
+  photo: "assets/profile.svg"         # Put your photo in public/assets/ and point
+                                      # here, e.g. "assets/profile.jpg". Leave "" to hide.
+
+# One-line summary of your research, shown large on the home page.
+tagline: "I build machine learning systems that are interpretable, reliable, and useful in the real world."
+
+# Optional CV. Drop a PDF in public/assets/ and reference it here. Leave "" to hide the button.
+cv: "assets/cv.pdf"
+
+# -----------------------------------------------------------------------------
+#  Links to your profiles. Delete any you don't use (only filled-in ones show).
+# -----------------------------------------------------------------------------
+social:
+  github: "https://github.com/example"
+  scholar: "https://scholar.google.com/citations?user=example"
+  orcid: "https://orcid.org/0000-0000-0000-0000"
+  linkedin: "https://www.linkedin.com/in/example"
+  twitter: "https://twitter.com/example"
+  # mastodon: "https://mastodon.social/@example"
+  # bluesky: "https://bsky.app/profile/example"
+  # website: "https://example.com"
+  # researchgate: "https://www.researchgate.net/profile/example"
+
+# Optional extra buttons for the Links page (beyond the profiles above).
+# links:
+#   - label: "Book a meeting"
+#     url: "https://calendly.com/example"
+#   - label: "Newsletter"
+#     url: "https://example.substack.com"
+
+# -----------------------------------------------------------------------------
+#  NAVIGATION PAGES  ::  what appears in the top menu, and in what order.
+#  • Reorder the list to reorder the menu.
+#  • Set `enabled: false` to hide a page completely.
+#  • A page also hides automatically if its content file is empty.
+#  • `label:` is optional and overrides the menu text.
+#
+#  (The home page is always shown and absorbs your bio, news, experience,
+#   volunteering, education, awards and selected publications. Control those
+#   blocks in home.yml.)
+# -----------------------------------------------------------------------------
+sections:
+  - id: publications   # content/publications.yml
+    enabled: true
+  - id: talks          # content/talks.yml
+    enabled: true
+    label: "Talks"
+  - id: workshops      # content/workshops.yml
+    enabled: true
+  - id: projects       # content/projects.yml
+    enabled: true
+  - id: gallery        # content/gallery.yml
+    enabled: true
+  - id: blog           # content/blog/*.md
+    enabled: true
+  - id: links          # the Links / contact page
+    enabled: true
+
+footer:
+  note: ""             # Optional extra line in the footer
+  showThemeToggle: true
+
+seo:
+  description: "Personal academic website of John Doe, PhD Candidate in Computer Science researching interpretable machine learning."
+  # image: "assets/profile.svg"   # Optional social-share preview image
+
+# -----------------------------------------------------------------------------
+#  Advanced (usually leave blank). The deploy workflow sets these automatically.
+#  Only fill these in if you use a custom domain.
+# -----------------------------------------------------------------------------
+# basePath: "/"
+# siteUrl: "https://your-name.github.io"

@@ -1,0 +1,52 @@
+---
+import { site } from '../lib/content';
+import Icon from './Icon.astro';
+
+interface Props {
+  size?: number;
+  class?: string;
+  showEmail?: boolean;
+}
+const { size = 19, class: className = '', showEmail = true } = Astro.props;
+const social = (site.social ?? {}) as Record<string, string | undefined>;
+
+const defs: [string, string, string][] = [
+  ['github', 'GitHub', 'github'],
+  ['scholar', 'Google Scholar', 'scholar'],
+  ['orcid', 'ORCID', 'orcid'],
+  ['linkedin', 'LinkedIn', 'linkedin'],
+  ['twitter', 'X (Twitter)', 'x'],
+  ['mastodon', 'Mastodon', 'globe'],
+  ['bluesky', 'Bluesky', 'globe'],
+  ['website', 'Website', 'globe'],
+  ['researchgate', 'ResearchGate', 'globe'],
+  ['semanticscholar', 'Semantic Scholar', 'globe'],
+  ['dblp', 'DBLP', 'globe'],
+  ['youtube', 'YouTube', 'video'],
+];
+
+const items: { label: string; icon: string; href: string; external: boolean }[] = [];
+if (showEmail && site.profile.email) {
+  items.push({ label: 'Email', icon: 'mail', href: `mailto:${site.profile.email}`, external: false });
+}
+for (const [key, label, icon] of defs) {
+  const url = social[key];
+  if (url) items.push({ label, icon, href: url, external: true });
+}
+---
+{items.length > 0 && (
+  <div class:list={['flex flex-wrap items-center gap-2.5', className]}>
+    {items.map((it) => (
+      <a
+        href={it.href}
+        aria-label={it.label}
+        title={it.label}
+        target={it.external ? '_blank' : undefined}
+        rel={it.external ? 'noopener noreferrer' : undefined}
+        class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted transition hover:text-accent hover:border-accent"
+      >
+        <Icon name={it.icon} size={size} />
+      </a>
+    ))}
+  </div>
+)}

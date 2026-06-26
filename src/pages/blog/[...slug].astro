@@ -1,0 +1,43 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogList from '../../components/BlogList.astro';
+import BlogPostView from '../../components/BlogPostView.astro';
+import { getVisibleSections } from '../../lib/sections';
+import { toTime } from '../../lib/format';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const nav = await getVisibleSections();
+  if (!nav.some((s) => s.id === 'blog')) return []; // blog hidden → generate nothing
+
+  const posts = (
+    await getCollection('blog', (e) => (import.meta.env.PROD ? e.data.draft !== true : true))
+  ).sort((a, b) => toTime(b.data.date) - toTime(a.data.date));
+
+  const paths: {
+    params: { slug: string | undefined };
+    props: { mode: 'list' | 'post'; posts: CollectionEntry<'blog'>[]; post?: CollectionEntry<'blog'> };
+  }[] = [{ params: { slug: undefined }, props: { mode: 'list', posts } }];
+
+  for (const post of posts) {
+    paths.push({ params: { slug: post.id }, props: { mode: 'post', posts, post } });
+  }
+  return paths;
+};
+
+const { mode, posts, post } = Astro.props as {
+  mode: 'list' | 'post';
+  posts: CollectionEntry<'blog'>[];
+  post?: CollectionEntry<'blog'>;
+};
+---
+{mode === 'list' ? (
+  <BaseLayout title="Blog">
+    <BlogList posts={posts} />
+  </BaseLayout>
+) : (
+  <BaseLayout title={post!.data.title} description={post!.data.excerpt}>
+    <BlogPostView post={post!} />
+  </BaseLayout>
+)}

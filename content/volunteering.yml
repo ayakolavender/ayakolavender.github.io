@@ -1,0 +1,25 @@
+# =============================================================================
+#  VOLUNTEERING & LEADERSHIP  ::  clubs, mentoring, organizing, community work.
+#  Shown on the home page. Fields: role (required), organization, year,
+#  location, description.
+# =============================================================================
+
+- role: "President"
+  organization: "Graduate Student Association, University of Example"
+  year: "2024 – present"
+  description: "Lead a 12-person committee representing 2,000+ graduate students on academic and wellbeing matters."
+
+- role: "Workshop Co-organizer"
+  organization: "Workshop on Interpretable ML @ NeurIPS 2025"
+  year: 2025
+  description: "Co-organized a full-day workshop with around 150 attendees."
+
+- role: "Volunteer Mentor"
+  organization: "Code Forward (community coding club)"
+  year: "2023 – present"
+  description: "Teach weekly programming sessions to high-school students from underrepresented backgrounds."
+
+- role: "Peer Reviewer"
+  organization: "ICML, NeurIPS, ICLR"
+  year: "2024 – present"
+  description: "Review submissions on interpretability and trustworthy machine learning."

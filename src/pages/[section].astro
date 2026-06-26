@@ -1,0 +1,33 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getVisibleSections, type SectionId } from '../lib/sections';
+import PublicationsSection from '../components/sections/PublicationsSection.astro';
+import TalksSection from '../components/sections/TalksSection.astro';
+import WorkshopsSection from '../components/sections/WorkshopsSection.astro';
+import ProjectsSection from '../components/sections/ProjectsSection.astro';
+import GallerySection from '../components/sections/GallerySection.astro';
+import LinksSection from '../components/sections/LinksSection.astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const sections = await getVisibleSections();
+  return sections
+    .filter((s) => s.id !== 'blog') // blog has its own routes
+    .map((s) => ({ params: { section: s.id }, props: { id: s.id, label: s.label } }));
+};
+
+const { id, label } = Astro.props as { id: SectionId; label: string };
+
+const registry: Record<string, any> = {
+  publications: PublicationsSection,
+  talks: TalksSection,
+  workshops: WorkshopsSection,
+  projects: ProjectsSection,
+  gallery: GallerySection,
+  links: LinksSection,
+};
+const Component = registry[id];
+---
+<BaseLayout title={label}>
+  {Component && <Component />}
+</BaseLayout>

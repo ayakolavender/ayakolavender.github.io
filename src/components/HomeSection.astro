@@ -1,0 +1,28 @@
+---
+import Icon from './Icon.astro';
+interface Props {
+  title: string;
+  eyebrow?: string;
+  viewAllHref?: string;
+  viewAllLabel?: string;
+  class?: string;
+}
+const { title, eyebrow, viewAllHref, viewAllLabel = 'View all', class: className = '' } = Astro.props;
+---
+<section class:list={['py-9 md:py-11', className]}>
+  <div class="mb-6 flex items-end justify-between gap-4">
+    <div>
+      {eyebrow && <p class="eyebrow mb-2">{eyebrow}</p>}
+      <h2 class="section-title">{title}</h2>
+    </div>
+    {viewAllHref && (
+      <a
+        href={viewAllHref}
+        class="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-accent link-underline"
+      >
+        {viewAllLabel} <Icon name="arrow-right" size={15} />
+      </a>
+    )}
+  </div>
+  <slot />
+</section>

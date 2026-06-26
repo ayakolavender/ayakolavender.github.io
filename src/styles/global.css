@@ -1,0 +1,316 @@
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+/* Dark mode is driven by a `.dark` class on <html> (toggled by the theme button
+   and the pre-paint script in BaseLayout). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Map our theme tokens (set by ThemeStyles.astro from content/theme.yml) onto
+   Tailwind's design tokens, so utilities like `bg-bg`, `text-text`,
+   `border-border`, `bg-accent`, `text-muted`, `rounded-lg`, `font-serif` work.
+   The actual color VALUES live in :root / html.dark (generated per preset).
+--------------------------------------------------------------------------- */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-accent-soft: var(--accent-soft);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --font-sans: var(--font-body), ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: var(--font-heading), ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+/* Fallback token values so the site still renders if theme generation is absent.
+   `:where(:root)` has zero specificity, so the generated theme (a plain `:root`
+   block injected by ThemeStyles) always wins regardless of stylesheet order. */
+:where(:root) {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f5f5f5;
+  --text: #18181b;
+  --muted: #6b7280;
+  --border: #e4e4e7;
+  --accent: #2563eb;
+  --accent-text: #ffffff;
+  --accent-soft: rgba(37, 99, 235, 0.1);
+  --ring: #2563eb;
+  --radius: 10px;
+  --font-body: "Inter";
+  --font-heading: "Playfair Display";
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-accent-text);
+  }
+}
+
+@layer components {
+  /* Reusable surfaces */
+  .card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.6rem 1.1rem;
+    transition: all 0.18s ease;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-accent-text);
+  }
+  .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-accent) 86%, black);
+    transform: translateY(-1px);
+  }
+  .btn-ghost {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+  .btn-ghost:hover {
+    background-color: var(--color-surface-2);
+    border-color: color-mix(in srgb, var(--color-text) 25%, transparent);
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    background-color: var(--color-accent-soft);
+    color: color-mix(in srgb, var(--color-accent) 80%, var(--color-text));
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-border);
+    color: var(--color-muted);
+  }
+  .link-underline {
+    background-image: linear-gradient(var(--color-accent), var(--color-accent));
+    background-size: 0% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease;
+  }
+  .link-underline:hover {
+    background-size: 100% 1.5px;
+  }
+  .tag-btn {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-border);
+    color: var(--color-muted);
+    transition: all 0.15s ease;
+  }
+  .tag-btn:hover { color: var(--color-text); }
+  .tag-btn[aria-pressed='true'] {
+    background-color: var(--color-accent);
+    color: var(--color-accent-text);
+    border-color: var(--color-accent);
+  }
+  /* Header nav links: bigger, darken + bold on hover, with no layout shift
+     (the bold "ghost" via ::after reserves the wider width up front). */
+  .nav-link {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: var(--radius-md);
+    padding: 0.4rem 0.7rem;
+    font-size: 1rem;
+    line-height: 1.2;
+    color: var(--color-muted);
+    transition: color 0.15s ease, background-color 0.15s ease;
+  }
+  .nav-link::after {
+    content: attr(data-label);
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    font-weight: 700;
+    pointer-events: none;
+  }
+  .nav-link:hover {
+    color: var(--color-text);
+    font-weight: 600;
+    background-color: var(--color-surface-2);
+  }
+  .nav-link[aria-current='page'] {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  /* Small uppercase label used above section headings, for a bolder rhythm. */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+  .gradient-text {
+    background-image: linear-gradient(115deg, var(--color-text), color-mix(in srgb, var(--color-accent) 65%, var(--color-text)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .section-title {
+    font-size: clamp(1.55rem, 1.15rem + 1.5vw, 2.05rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Code blocks (Shiki dual themes). Light values are inline; we swap to the
+   dark variant under html.dark to match the theme toggle.
+--------------------------------------------------------------------------- */
+.prose pre.astro-code,
+pre.astro-code {
+  background-color: var(--surface-2) !important;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:where(.dark) pre.astro-code,
+:where(.dark) pre.astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: transparent;
+}
+:where(.dark) pre.astro-code {
+  background-color: #161616 !important;
+}
+
+/* KaTeX color follows the text color in dark mode */
+:where(.dark) .katex { color: var(--text); }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
+
+/* ---------------------------------------------------------------------------
+   Long-form article styling for blog posts (no typography plugin needed).
+--------------------------------------------------------------------------- */
+.prose { color: var(--color-text); font-size: 1.05rem; }
+.prose > * + * { margin-top: 1.1rem; }
+.prose h1 { font-size: 2rem; margin-top: 2.4rem; }
+.prose h2 { font-size: 1.55rem; margin-top: 2.2rem; }
+.prose h3 { font-size: 1.25rem; margin-top: 1.8rem; }
+.prose h1, .prose h2, .prose h3, .prose h4 { margin-bottom: 0.6rem; }
+.prose p { line-height: 1.75; }
+.prose a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose ul, .prose ol { padding-left: 1.4rem; }
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose li + li { margin-top: 0.35rem; }
+.prose blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1rem;
+  color: var(--color-muted);
+  font-style: italic;
+}
+.prose :not(pre) > code {
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.12em 0.4em;
+  font-size: 0.88em;
+}
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  font-size: 0.92rem;
+}
+.prose th, .prose td {
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.prose th { background-color: var(--color-surface-2); font-weight: 600; }
+.prose img { border-radius: var(--radius-lg); max-width: 100%; height: auto; }
+.prose hr { border: 0; border-top: 1px solid var(--color-border); margin: 2rem 0; }
+
+/* Subtle entrance animation used by the hero and section headers */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.rise { animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.rise-2 { animation-delay: 0.07s; }
+.rise-3 { animation-delay: 0.14s; }
+.rise-4 { animation-delay: 0.21s; }
+.rise-5 { animation-delay: 0.28s; }
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  html { scroll-behavior: auto; }
+}

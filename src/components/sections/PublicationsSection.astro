@@ -1,0 +1,91 @@
+---
+import { publications } from '../../lib/content';
+import { authorList } from '../../lib/format';
+import Container from '../Container.astro';
+import PageHeader from '../PageHeader.astro';
+import PublicationCard from '../PublicationCard.astro';
+
+const years = Array.from(
+  new Set(publications.map((p) => p.year).filter(Boolean).map(String))
+).sort((a, b) => b.localeCompare(a, undefined, { numeric: true }));
+const types = Array.from(
+  new Set(publications.map((p) => p.type).filter(Boolean))
+) as string[];
+const count = publications.length;
+---
+<Container class="py-12 md:py-16">
+  <PageHeader title="Publications" eyebrow="Research" subtitle="Peer-reviewed papers, preprints, and workshop contributions." />
+
+  <div class="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+    <input
+      id="pub-search"
+      type="search"
+      placeholder="Search title, author, abstract…"
+      class="w-full flex-1 rounded-lg border border-border bg-surface px-3.5 py-2 text-sm outline-none focus:border-accent"
+    />
+    <div class="flex gap-3">
+      {years.length > 0 && (
+        <select id="pub-year" class="rounded-lg border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-accent">
+          <option value="all">All years</option>
+          {years.map((y) => <option value={y}>{y}</option>)}
+        </select>
+      )}
+      {types.length > 0 && (
+        <select id="pub-type" class="rounded-lg border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-accent">
+          <option value="all">All types</option>
+          {types.map((t) => <option value={t}>{t}</option>)}
+        </select>
+      )}
+    </div>
+  </div>
+
+  <p class="mb-4 text-sm text-muted"><span id="pub-count">{count}</span> shown</p>
+
+  <div class="space-y-4">
+    {publications.map((pub) => (
+      <div
+        data-pub
+        data-year={pub.year ? String(pub.year) : ''}
+        data-type={pub.type ?? ''}
+        data-text={(pub.title + ' ' + authorList(pub.authors).join(' ') + ' ' + (pub.abstract ?? '')).toLowerCase()}
+      >
+        <PublicationCard pub={pub} />
+      </div>
+    ))}
+  </div>
+
+  <p id="pub-empty" class="card hidden p-6 text-center text-muted">No publications match your filters.</p>
+</Container>
+<script is:inline>
+  (function () {
+    var search = document.getElementById('pub-search');
+    var year = document.getElementById('pub-year');
+    var type = document.getElementById('pub-type');
+    var items = Array.prototype.slice.call(document.querySelectorAll('[data-pub]'));
+    var empty = document.getElementById('pub-empty');
+    var count = document.getElementById('pub-count');
+    function apply() {
+      var q = ((search && search.value) || '').toLowerCase().trim();
+      var y = year ? year.value : 'all';
+      var t = type ? type.value : 'all';
+      var shown = 0;
+      items.forEach(function (el) {
+        var ok =
+          (!q || el.getAttribute('data-text').indexOf(q) > -1) &&
+          (y === 'all' || el.getAttribute('data-year') === y) &&
+          (t === 'all' || el.getAttribute('data-type') === t);
+        el.classList.toggle('hidden', !ok);
+        if (ok) shown++;
+      });
+      if (empty) empty.classList.toggle('hidden', shown > 0);
+      if (count) count.textContent = String(shown);
+    }
+    [search, year, type].forEach(function (e) {
+      if (e) {
+        e.addEventListener('input', apply);
+        e.addEventListener('change', apply);
+      }
+    });
+    apply();
+  })();
+</script>

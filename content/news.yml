@@ -1,0 +1,30 @@
+# =============================================================================
+#  NEWS & UPDATES  ::  a dated feed (also shown on the home page).
+#  Newest items are shown first automatically (by date).
+#  `type` controls the icon: award | publication | talk | news (default).
+# =============================================================================
+
+- date: 2026-05-01
+  title: "Paper accepted to ICML 2026"
+  description: "Our work on faithful explanations for transformers was accepted to ICML 2026."
+  type: publication
+
+- date: 2026-03-15
+  title: "Invited talk at the University of Example ML Seminar"
+  description: "Presented recent work on interpretable representations to the department."
+  type: talk
+
+- date: 2026-01-20
+  title: "Received the Departmental Research Excellence Award"
+  type: award
+
+- date: 2025-11-10
+  title: "Started a research internship at Example Labs"
+  description: "Spending the winter working on reliable evaluation of language models."
+  type: news
+
+- date: 2025-09-02
+  title: "New preprint on causal probing now on arXiv"
+  description: "Feedback welcome!"
+  type: publication
+  link: "https://arxiv.org/abs/0000.00000"

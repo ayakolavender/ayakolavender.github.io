@@ -1,0 +1,73 @@
+# =============================================================================
+#  PUBLICATIONS
+#  • Put your name exactly as in `profile.name` (site.yml) to have it bolded.
+#  • `featured: true` shows the paper in "Selected Publications" on the home page.
+#  • `links:` accepts any of: pdf, code, arxiv, doi, slides, video, poster,
+#    demo, website, project, data, bibtex.
+#  • `doi` can be a bare DOI (e.g. 10.1000/xyz), it becomes a full link.
+# =============================================================================
+
+- title: "Faithful Explanations for Transformer Models"
+  authors:
+    - "John Doe"
+    - "Jane Doe"
+    - "Sam Lee"
+  venue: "International Conference on Machine Learning (ICML)"
+  year: 2026
+  type: "Conference"
+  abstract: >
+    We introduce a method for generating explanations of transformer predictions
+    that come with formal faithfulness guarantees, and show it scales to modern
+    language models without degrading accuracy.
+  award: "Spotlight"
+  featured: true
+  links:
+    pdf: "#"
+    arxiv: "https://arxiv.org/abs/0000.00000"
+    code: "https://github.com/example/faithful-explanations"
+
+- title: "Causal Probing of Learned Representations"
+  authors:
+    - "John Doe"
+    - "Priya Nair"
+  venue: "Transactions on Machine Learning Research (TMLR)"
+  year: 2025
+  type: "Journal"
+  abstract: >
+    A framework for testing whether a concept is causally used by a model, rather
+    than merely correlated with its outputs.
+  featured: true
+  links:
+    pdf: "#"
+    doi: "10.1000/tmlr.example"
+    code: "https://github.com/example/causal-probing"
+
+- title: "On the Reliability of Post-hoc Explanation Methods"
+  authors:
+    - "Sam Lee"
+    - "John Doe"
+    - "Jane Doe"
+  venue: "NeurIPS Workshop on Interpretability"
+  year: 2024
+  type: "Workshop"
+  abstract: >
+    An empirical study showing that several popular explanation methods disagree
+    under small, label-preserving input perturbations.
+  featured: true
+  links:
+    pdf: "#"
+    poster: "#"
+
+- title: "Efficient Fine-tuning for Low-resource Languages"
+  authors:
+    - "Priya Nair"
+    - "John Doe"
+  venue: "Annual Meeting of the Association for Computational Linguistics (ACL)"
+  year: 2024
+  type: "Conference"
+  abstract: >
+    We present a parameter-efficient adaptation strategy that improves quality on
+    low-resource languages with a fraction of the compute.
+  links:
+    pdf: "#"
+    arxiv: "https://arxiv.org/abs/0000.00000"

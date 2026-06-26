@@ -1,0 +1,15 @@
+---
+/**
+ * One container = one set of left/right edges everywhere, so all sections line
+ * up. Use the same `size` across a page to keep things aligned.
+ */
+interface Props {
+  size?: 'narrow' | 'base' | 'wide';
+  class?: string;
+}
+const { size = 'base', class: className = '' } = Astro.props;
+const max = size === 'wide' ? 'max-w-6xl' : size === 'narrow' ? 'max-w-2xl' : 'max-w-4xl';
+---
+<div class:list={['mx-auto w-full px-6', max, className]}>
+  <slot />
+</div>

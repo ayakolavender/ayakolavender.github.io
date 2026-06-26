@@ -1,0 +1,61 @@
+---
+/**
+ * A vertical timeline with the dots precisely centred on the connecting line.
+ * Used for Experience and Education.
+ */
+export interface TimelineItem {
+  title: string;
+  lead?: string;
+  meta?: string;
+  sub?: string;
+  description?: string;
+  bullets?: string[];
+  coursework?: string[];
+  note?: string;
+}
+interface Props {
+  items: TimelineItem[];
+}
+const { items } = Astro.props;
+---
+<ol class="relative">
+  {items.map((it, i) => (
+    <li class="relative pl-9 pb-7 last:pb-0">
+      {i < items.length - 1 && (
+        <span class="absolute left-[8px] top-[1.6rem] bottom-0 w-px bg-border" aria-hidden="true"></span>
+      )}
+      <span
+        class="absolute left-0 top-1 h-4 w-4 rounded-full border-[3px] border-accent bg-bg"
+        aria-hidden="true"
+      ></span>
+      <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
+        <h3 class="text-[1.05rem] font-semibold">
+          {it.title}
+          {it.lead && <span class="font-normal text-muted"> · {it.lead}</span>}
+        </h3>
+        {it.meta && <span class="shrink-0 text-sm font-medium text-muted">{it.meta}</span>}
+      </div>
+      {it.sub && <p class="text-sm text-muted">{it.sub}</p>}
+      {it.description && <p class="mt-1.5 text-[0.95rem] leading-relaxed text-muted">{it.description}</p>}
+      {it.bullets && it.bullets.length > 0 && (
+        <ul class="mt-2 space-y-1.5">
+          {it.bullets.map((bp) => (
+            <li class="relative pl-4 text-[0.95rem] leading-relaxed text-muted">
+              <span class="absolute left-0 top-[0.55rem] h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true"></span>
+              {bp}
+            </li>
+          ))}
+        </ul>
+      )}
+      {it.coursework && it.coursework.length > 0 && (
+        <div class="mt-2.5">
+          <p class="text-xs font-semibold uppercase tracking-wide text-muted">Coursework</p>
+          <div class="mt-1.5 flex flex-wrap gap-1.5">
+            {it.coursework.map((c) => <span class="tag">{c}</span>)}
+          </div>
+        </div>
+      )}
+      {it.note && <p class="mt-2 text-sm italic text-muted">{it.note}</p>}
+    </li>
+  ))}
+</ol>

@@ -1,0 +1,26 @@
+# =============================================================================
+#  AWARDS & HONORS  ::  awards, grants, fellowships, scholarships.
+#  `type` is free text and groups items (e.g. award | grant | fellowship | scholarship).
+# =============================================================================
+
+- title: "Departmental Research Excellence Award"
+  organization: "University of Example"
+  year: 2026
+  type: "award"
+  description: "For outstanding doctoral research in machine learning."
+
+- title: "ICML Travel Grant"
+  organization: "ICML"
+  year: 2026
+  type: "grant"
+
+- title: "Graduate Research Fellowship"
+  organization: "Example Foundation"
+  year: 2023
+  type: "fellowship"
+  description: "Three-year fellowship supporting PhD research."
+
+- title: "Dean's List"
+  organization: "University of Sample"
+  year: "2018 – 2022"
+  type: "scholarship"

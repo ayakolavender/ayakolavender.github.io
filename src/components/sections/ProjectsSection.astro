@@ -1,0 +1,33 @@
+---
+import { projects } from '../../lib/content';
+import Container from '../Container.astro';
+import PageHeader from '../PageHeader.astro';
+import LinkBadges from '../LinkBadges.astro';
+import ImageWithFallback from '../ImageWithFallback.astro';
+---
+<Container class="py-12 md:py-16">
+  <PageHeader title="Projects" eyebrow="Work" subtitle="Research projects, software, datasets, and other work." />
+  <div class="grid gap-5 sm:grid-cols-2">
+    {projects.map((p) => (
+      <article class="card flex flex-col overflow-hidden transition hover:-translate-y-0.5 hover:shadow-sm">
+        {p.image && (
+          <ImageWithFallback src={p.image} alt={p.name} class="h-40 w-full border-b border-border object-cover" />
+        )}
+        <div class="flex flex-1 flex-col p-5">
+          <div class="flex items-baseline justify-between gap-2">
+            <h3 class="font-serif text-lg font-bold">{p.name}</h3>
+            {p.year && <span class="shrink-0 text-xs text-muted">{p.year}</span>}
+          </div>
+          {p.role && <p class="mt-0.5 text-sm font-medium text-accent">{p.role}</p>}
+          {p.description && <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">{p.description}</p>}
+          {p.tags && p.tags.length > 0 && (
+            <div class="mt-3 flex flex-wrap gap-1.5">
+              {p.tags.map((tg) => <span class="tag">{tg}</span>)}
+            </div>
+          )}
+          <LinkBadges links={p.links} />
+        </div>
+      </article>
+    ))}
+  </div>
+</Container>

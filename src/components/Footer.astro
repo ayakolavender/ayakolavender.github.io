@@ -1,0 +1,16 @@
+---
+import { site } from '../lib/content';
+import SocialLinks from './SocialLinks.astro';
+
+const year = new Date().getFullYear();
+const name = site.profile.name;
+const note = site.footer?.note;
+---
+<footer class="mt-20 border-t border-border">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-5 px-5 py-10 text-center">
+    <SocialLinks class="justify-center" />
+    <p class="text-sm text-muted">
+      © {year} {name}{note ? ` · ${note}` : ''}
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,49 @@
+---
+import { formatDate } from '../lib/format';
+import Icon from './Icon.astro';
+import type { News } from '../lib/schemas';
+
+interface Props {
+  items: News[];
+  limit?: number;
+}
+const { items, limit } = Astro.props;
+const shown = typeof limit === 'number' ? items.slice(0, limit) : items;
+
+const iconFor = (t?: string): string => {
+  const map: Record<string, string> = {
+    award: 'award',
+    publication: 'book-open',
+    talk: 'presentation',
+    media: 'video',
+  };
+  return (t && map[t]) || 'megaphone';
+};
+---
+<ul class="space-y-3">
+  {shown.map((n) => (
+    <li class="card flex gap-4 p-4 transition hover:shadow-sm">
+      <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-soft text-accent">
+        <Icon name={iconFor(n.type)} size={18} />
+      </div>
+      <div class="min-w-0">
+        <div class="flex items-center gap-1.5 text-xs text-muted">
+          <Icon name="calendar" size={13} />
+          <time>{formatDate(n.date, { year: 'numeric', month: 'short', day: 'numeric' })}</time>
+        </div>
+        <h3 class="mt-1 font-medium leading-snug">{n.title}</h3>
+        {n.description && <p class="mt-1 text-sm text-muted">{n.description}</p>}
+        {n.link && (
+          <a
+            href={n.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-1.5 inline-flex items-center gap-1 text-sm text-accent link-underline"
+          >
+            Read more <Icon name="arrow-right" size={14} />
+          </a>
+        )}
+      </div>
+    </li>
+  ))}
+</ul>

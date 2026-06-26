@@ -1,0 +1,22 @@
+---
+import { assetUrl } from '../lib/url';
+
+interface Props {
+  src?: string;
+  alt?: string;
+  class?: string;
+}
+const { src, alt = '', class: className = '' } = Astro.props;
+const url = assetUrl(src);
+const fallback = assetUrl('assets/profile.svg');
+---
+{url && (
+  <img
+    src={url}
+    alt={alt}
+    class={className}
+    loading="lazy"
+    decoding="async"
+    onerror={`this.onerror=null;this.src='${fallback}';`}
+  />
+)}

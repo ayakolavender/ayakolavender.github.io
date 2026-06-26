@@ -1,0 +1,35 @@
+# =============================================================================
+#  TALKS & PRESENTATIONS  ::  invited talks, conference talks, posters, seminars.
+#  `type` is free text (e.g. Invited | Keynote | Conference | Poster | Seminar).
+#  `links:` accepts slides, video, paper, poster, etc.
+# =============================================================================
+
+- title: "Interpretable representations for trustworthy ML"
+  event: "University of Example, ML Seminar"
+  date: 2026-03-15
+  location: "Example City"
+  type: "Invited"
+  links:
+    slides: "#"
+
+- title: "Faithful explanations for transformer models"
+  event: "ICML 2026"
+  date: 2026-07-20
+  location: "Vancouver, Canada"
+  type: "Conference"
+  links:
+    slides: "#"
+    video: "#"
+
+- title: "Do explanations explain? A skeptic's view"
+  event: "Example Labs Research Talk"
+  date: 2025-12-05
+  type: "Invited"
+
+- title: "Causal probing of learned representations"
+  event: "NeurIPS 2024, Poster Session"
+  date: 2024-12-10
+  location: "Vancouver, Canada"
+  type: "Poster"
+  links:
+    poster: "#"
