@@ -5,7 +5,7 @@
 # =============================================================================
 
 # Overrides site.yml email if set; otherwise the Links page uses profile.email.
-email: ""
+email: "ayakolavender8@gmail.com"
 
 # Office details are usually not needed for students, so they're blank (hidden)
 # by default. Fill any of these in only if you want them shown.

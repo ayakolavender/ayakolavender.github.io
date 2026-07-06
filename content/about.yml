@@ -6,9 +6,7 @@
 # "about me" shown on the home page.
 bio:
   - >
-    I'm a PhD candidate in Computer Science at the University of Example, advised
-    by Prof. Ada Lovelace in the Trustworthy ML Lab. My research develops methods
-    that make machine learning models interpretable without sacrificing accuracy.
+    .
   - >
     I care most about high-stakes settings such as healthcare and scientific
     discovery, where being right is not enough; we also need to understand why.
@@ -17,22 +15,31 @@ bio:
 
 # Education, most recent first. Add `coursework:` to list relevant courses.
 education:
-  - degree: "PhD in Computer Science"
-    institution: "University of Example"
-    year: "2022 - present"
-    thesis: "Interpretable representations for trustworthy machine learning"
+    degree: "Masters in Mathematical Sciences (Applied Mathematics in Renewable Energy)"
+    institution: "University of Cape Town"
+    year: "2025 - 2026"
+    thesis: "Quantifying Impact of extreme wind speed on Wind Turbine Performance using Generalized Extreme Value Distribution: A case study of South African wind farms"
     coursework:
-      - "Advanced Machine Learning"
-      - "Convex Optimization"
-      - "Causal Inference"
-      - "Statistical Learning Theory"
-  - degree: "BSc in Computer Science"
-    institution: "University of Sample"
-    year: "2018 - 2022"
+      - "Python"
+      - "Sage"
+      - "Verified Computing"
+      - "Material Modelling"
+
+    degree: "Bsc in Electrical and Electronic Engineering (Power Systems)"
+    institution: "Machakos University"
+    year: "2020 - 2025"
     note: "First Class Honours, Dean's List"
     coursework:
-      - "Algorithms"
-      - "Linear Algebra"
-      - "Probability & Statistics"
-      - "Machine Learning"
-      - "Databases"
+      - "Power Systems"
+      - "Electrical Machines"
+      - "Control Systems"
+      - "Power Electronics"
+      - "Renewable Energy"
+      - "IoT"
+      - "Grid Optimization"
+      - "Power System Protection"
+      - "Power System Stability"
+      - "Power System Analysis"
+      - "Power System Operation and Control"
+      - "Power System Planning"
+      - "Power System Economics"
