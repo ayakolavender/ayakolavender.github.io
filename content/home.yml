@@ -15,7 +15,7 @@ interests:
   - "Power Systems"
   - "Grid Optimization"
   - "Renewable Energy"
-  # - "IoT"
+  - "IoT"
 
 # Which blocks to show on the home page (all also hide if their file is empty).
 blocks:
