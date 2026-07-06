@@ -6,12 +6,10 @@
 # "about me" shown on the home page.
 bio:
   - >
-    .
-  - >
-    I care most about high-stakes settings such as healthcare and scientific
-    discovery, where being right is not enough; we also need to understand why.
-    Outside of research, I mentor undergraduates entering the field and write
-    tutorials on the mathematics behind modern machine learning.
+  -  I care most about high-stakes settings such as healthcare and scientific
+  -  discovery, where being right is not enough; we also need to understand why.
+  -  Outside of research, I mentor undergraduates entering the field and write
+  -  tutorials on the mathematics behind modern machine learning.
 
 # Education, most recent first. Add `coursework:` to list relevant courses.
 education:
@@ -24,21 +22,22 @@ education:
       - "Sage"
       - "Verified Computing"
       - "Material Modelling"
-  - degree: "Bsc in Electrical and Electronic Engineering (Power Systems)"
-    institution: "Machakos University"
-    year: "2020 - 2025"
-    note: "First Class Honours, Dean's List"
-    coursework:
-      - "Power Systems"
-      - "Electrical Machines"
-      - "Control Systems"
-      - "Power Electronics"
-      - "Renewable Energy"
-      - "IoT"
-      - "Grid Optimization"
-      - "Power System Protection"
-      - "Power System Stability"
-      - "Power System Analysis"
-      - "Power System Operation and Control"
-      - "Power System Planning"
-      - "Power System Economics"
+      
+  # - degree: "Bsc in Electrical and Electronic Engineering (Power Systems)"
+  #   institution: "Machakos University"
+  #   year: "2020 - 2025"
+  #   note: "First Class Honours, Dean's List"
+  #   coursework:
+  #     - "Power Systems"
+  #     - "Electrical Machines"
+  #     - "Control Systems"
+  #     - "Power Electronics"
+  #     - "Renewable Energy"
+  #     - "IoT"
+  #     - "Grid Optimization"
+  #     - "Power System Protection"
+  #     - "Power System Stability"
+  #     - "Power System Analysis"
+  #     - "Power System Operation and Control"
+  #     - "Power System Planning"
+  #     - "Power System Economics"
