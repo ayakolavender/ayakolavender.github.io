@@ -14,7 +14,7 @@ bio:
 # Education, most recent first. Add `coursework:` to list relevant courses.
 education:
   - degree: "Masters in Mathematical Sciences (Applied Mathematics in Renewable Energy)"
-    institution: "University of Cape Town"
+  - institution: "University of Cape Town"
     year: "2025 - 2026"
     thesis: "Quantifying Impact of extreme wind speed on Wind Turbine Performance using Generalized Extreme Value Distribution: A case study of South African wind farms"
     coursework:
@@ -24,7 +24,7 @@ education:
       - "Material Modelling"
 
   - degree: "Bsc in Electrical and Electronic Engineering (Power Systems)"
-    institution: "Machakos University"
+  - institution: "Machakos University"
     year: "2020 - 2025"
     note: "First Class Honours, Dean's List"
     coursework:
