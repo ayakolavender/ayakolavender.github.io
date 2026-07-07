@@ -6,16 +6,17 @@
 
 profile:
   name: "Lavender Ayako"                    # Your full name (shown in the header + footer)
-  shortName: "Lavender A"                 # Optional: compact name for the header logo
+  shortName: "Lavender"                 # Optional: compact name for the header logo
   role: "MSc Student"
   affiliation: "University of Cape Town"
   email: "ayakolavender8@gmail.com"       # Shown as a contact link (leave "" to hide)
-  location: "Example City, USA"       # Optional
+  location: "Kenya, available for relocation"       # Optional
   photo: "assets/picture.jpg"         # Put your photo in public/assets/ and point
                                       # here, e.g. "assets/profile.jpg". Leave "" to hide.
 
 # One-line summary of your research, shown large on the home page.
-tagline: "I build machine learning systems that are interpretable, reliable, and useful in the real world."
+tagline: "I design power systems and analyze their performance using computational methods to solve the real world problems in energy sector, I am passionate about creating sustainable solutions. I am actively seeking job opportunities research opportunities in the field of power systems, renewable energy, and grid optimization."
+
 
 # Optional CV. Drop a PDF in public/assets/ and reference it here. Leave "" to hide the button.
 cv: "assets/cv.pdf"
@@ -24,14 +25,14 @@ cv: "assets/cv.pdf"
 #  Links to your profiles. Delete any you don't use (only filled-in ones show).
 # -----------------------------------------------------------------------------
 social:
-  github: "https://github.com/example"
-  scholar: "https://scholar.google.com/citations?user=example"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
-  linkedin: "https://www.linkedin.com/in/example"
-  twitter: "https://twitter.com/example"
+  github: "https://github.com/ayakolavender"
+  #scholar: "https://scholar.google.com/citations?user=example"
+  facebook: "https://www.facebook.com/lavenderayako"
+  instagram: "www.instagram.com/lavenderayako"
+  twitter: "https://x.com/AyakoLave51660"
   # mastodon: "https://mastodon.social/@example"
   # bluesky: "https://bsky.app/profile/example"
-  # website: "https://example.com"
+  website: "https://ayakolavender.github.io/"
   # researchgate: "https://www.researchgate.net/profile/example"
 
 # Optional extra buttons for the Links page (beyond the profiles above).
