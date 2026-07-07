@@ -4,22 +4,44 @@
 #  location, description.
 # =============================================================================
 
-- role: "President"
-  organization: "Graduate Student Association, University of Example"
-  year: "2024 – present"
-  description: "Lead a 12-person committee representing 2,000+ graduate students on academic and wellbeing matters."
+- role: "Mastercard Foundation Graduate Student Representative"
+  organization: "African Institute for Mathematical Science, South Africa"
+  year: "2025 – present"
+  description: "Lead a committee representing Mastercard Foundation graduate students on academic and wellbeing matters."
 
 - role: "Workshop Co-organizer"
-  organization: "Workshop on Interpretable ML @ NeurIPS 2025"
-  year: 2025
-  description: "Co-organized a full-day workshop with around 150 attendees."
+  organization: "Workshop on Deep Learning IndabaX Kenya 2026 "
+  year: "2026 – present"
+  description: "Co-organized a three full-day workshop with around 600 attendees."
 
 - role: "Volunteer Mentor"
-  organization: "Code Forward (community coding club)"
-  year: "2023 – present"
-  description: "Teach weekly programming sessions to high-school students from underrepresented backgrounds."
+  organization: "Institute of Electrical and Electronics Engineers (IEEE)"
+  year: "2024 – present"
+  description: "Teach weekly programming sessions to high-school students from underrepresented backgroundsin STEM fields titled 'Girls in STEM Mentorship'."
 
 - role: "Peer Reviewer"
-  organization: "ICML, NeurIPS, ICLR"
-  year: "2024 – present"
-  description: "Review submissions on interpretability and trustworthy machine learning."
+  organization: "Deep Learning IndabaX Kenya"
+  year: "2025 – present"
+  description: "Review submissions on interpretability and trustworthy of presenters on deep learning topics."
+
+- role: "Community Outreach Volunteer"
+  organization: "Africa Scientifique in Partnership with AIMS South Africa"
+  year: "2025 – present"
+  description: "Engage with the local community to promote awareness and participation in Flood Management initiatives."
+
+- role: "Field Trip and Networking Manager"
+  organization: "WiRE(Women in Renewable Energy)"
+  year: "2026 – present"
+  description: "Organize field trips and networking events for members."
+
+- role: "Business Development and Marketing Volunteer"
+  organization: "Stratum Energy Fund"
+  year: "2026 – present"
+  description: "Assist in developing marketing strategies and business development initiatives to promote the organization's mission and services."
+
+- role: "Master of Ceremony"
+  organization: "WAFIRA(Women Advancement Forum)"
+  year: "2025"
+  description: "Hosted and facilitated the WAFIRA conference, ensuring smooth proceedings and engaging the audience throughout the event."
+
+
