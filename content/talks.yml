@@ -10,7 +10,7 @@
   location: "Gauteng, South Africa"
   type: "Poster"
   links:
-    #slides: "#"
+  slides: "#"
 
 - title: "Catching the Wind ,Betz Model"
   event: "MISG 2026"
@@ -18,11 +18,11 @@
   location: "University of Witwatersrand, South Africa"
   type: "Conference"
   links:
-    slides: "#"
-    video: "#"
+  slides: "#"
+  video: "#"
 
 - title: "Do explanations explain? A skeptic's view"
-  event: " Labs Research Talk"
+  event: "Labs Research Talk"
   date: 2025-04-05
   type: "Invited"
 
@@ -32,4 +32,4 @@
   location: "Siaya, Kenya"
   type: "Invited"
   links:
-    poster: "#"
+  poster: "#"
