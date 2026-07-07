@@ -19,7 +19,7 @@ tagline: "I design power systems and analyze their performance using computation
 
 
 # Optional CV. Drop a PDF in public/assets/ and reference it here. Leave "" to hide the button.
-cv: "assets/cv.pdf"
+cv: "assets\\Lavenders_CV.pdf"
 
 # -----------------------------------------------------------------------------
 #  Links to your profiles. Delete any you don't use (only filled-in ones show).
