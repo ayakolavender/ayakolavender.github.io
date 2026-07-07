@@ -14,7 +14,7 @@
 
 - name: "Digiskills Africa"
   host: "Innoglobal Digiskills Training and sustainability to innovation"
-  date: 2026-06-06- 2026-06-16
+  date: 2026-06-06
   location: "Gauteng', South Africa"
   role: "Trainee"
   description: "Training in Large Language Models, Industry 5.0, Data science and Artificial Intelligence at large.
@@ -28,7 +28,7 @@
 
 - name: "Enlit Africa Summit"
   host: "International Conference on Africa Energy"
-  date: 2026-05-11- 2026-05-14
+  date: 2026-05-11
   location: "Capetown, South Africa"
   role: "Attended"
 
@@ -39,21 +39,21 @@
   role: "Presented"
   description: "Presented on a research of use in AI in reducing risk of betting companies from risk "
 
-  name: "Deep Learning IndabaX Kenya"
+- name: "Deep Learning IndabaX Kenya"
   host: "KEMRI"
-  date: 2026-06-21-2026-06-25
+  date: 2026-06-21
   location: "Nairobi, Kenya"
   role: "Organizer"
   description: "Co-organized the Deep Learning IndabaX Kenya 2026 conference, which brought together researchers, practitioners, and students in the field of deep learning to share knowledge, discuss advancements, and foster collaborations."
-
-  name: "National Science Month"
+  
+- name: "National Science Month"
   host: "South African Agency for Science and Technology Advancement (SAASTA)"
-  date: 2026-07-04- 2026-07-10
+  date: 2026-07-04
   location: "Vaal University of Technology, Vanderbijlpark, South Africa"
   role: "Exhibitor"
   description: "Exhibited on African Institute for Mathematical Sciences(AIMS) South Africa on what it does and the available opportunities it offers to bright students in STEM."
 
-  name: "Africa Scientifique Communication and Empowerment"
+- name: "Africa Scientifique Communication and Empowerment"
   host: "AIMS South Africa and African Gong"
   date: 2025-12-13
   location: "AIMS, South Africa"
