@@ -5,11 +5,11 @@
 # Your biography. Write one item per paragraph. Keep it concise; this is the
 # "about me" shown on the home page.
 bio:
-  - >
-  - I care most about high-stakes settings such as healthcare and scientific
+  - Graduate Electrical and Electronics Engineer and Master’s in Mathematical Sciences (Applied Mathematics in Renewable Energy). I have a foundation in electrical circuit analysis, laboratory experimentation, embedded systems, control systems, simulation, hardware testing, and engineering research. Proficient in MATLAB, Simulink, Proteus, Python, and electronic laboratory instrumentation. Passionate about developing and validating electronic hardware for advanced engineering applications including quantum computing systems.
+  - I care most about high-stakes settings such as green economy and scientific
   - discovery, where being right is not enough; we also need to understand why.
   - Outside of research, I mentor undergraduates entering the field and write
-  - tutorials on the mathematics behind modern machine learning.
+  - tutorials on the power systems design behind modern software designs.
 
 # Education, most recent first. Add `coursework:` to list relevant courses.
 education:
