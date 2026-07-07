@@ -4,32 +4,32 @@
 #  `links:` accepts slides, video, paper, poster, etc.
 # =============================================================================
 
-- title: "Interpretable representations for trustworthy ML"
-  event: "University of Example, ML Seminar"
-  date: 2026-03-15
-  location: "Example City"
-  type: "Invited"
+- title: "Flood Management using Maths"
+  event: "Vaal University of Technology, Science Month"
+  date: 2026-07-04
+  location: "Gauteng, South Africa"
+  type: "Poster"
   links:
-    slides: "#"
+    #slides: "#"
 
-- title: "Faithful explanations for transformer models"
-  event: "ICML 2026"
-  date: 2026-07-20
-  location: "Vancouver, Canada"
+- title: "Catching the Wind ,Betz Model"
+  event: "MISG 2026"
+  date: 2026-01-20
+  location: "University of Witwatersrand, South Africa"
   type: "Conference"
   links:
     slides: "#"
     video: "#"
 
 - title: "Do explanations explain? A skeptic's view"
-  event: "Example Labs Research Talk"
-  date: 2025-12-05
+  event: " Labs Research Talk"
+  date: 2025-04-05
   type: "Invited"
 
-- title: "Causal probing of learned representations"
-  event: "NeurIPS 2024, Poster Session"
-  date: 2024-12-10
-  location: "Vancouver, Canada"
-  type: "Poster"
+- title: "Girls in STEM Mentorship"
+  event: "IEEE PRE-University Education"
+  date: 2025-06-10
+  location: "Siaya, Kenya"
+  type: "Invited"
   links:
     poster: "#"
