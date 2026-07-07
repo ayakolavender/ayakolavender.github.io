@@ -1,26 +1,40 @@
 # =============================================================================
 #  AWARDS & HONORS  ::  awards, grants, fellowships, scholarships.
 #  `type` is free text and groups items (e.g. award | grant | fellowship | scholarship).
-# =============================================================================
+# =========================================================================
 
-- title: "Departmental Research Excellence Award"
-  organization: "University of Example"
+- title: "Hackathon Winner"
+  organization: "AIMS South Africa"
   year: 2026
   type: "award"
-  description: "For outstanding doctoral research in machine learning."
+  description: "My project entitled 'Risk reduction in football betting companies by implementing insurance companies insure the risk incase of large predictions on winning side and there is inadequate funds in the company using AI and live dashboard'."
 
-- title: "ICML Travel Grant"
-  organization: "ICML"
-  year: 2026
+- title: "Scholarship for Excellence to pursue Masters"
+  organization: "Mastercard Foundation"
+  year: 2025
+  type: "award"
+  description: "For outstanding performance in undergraduate academics."
+
+- title: "IEEE Project Grant"
+  organization: "IEEE"
+  year: 2025
   type: "grant"
+  description: "For the project titled 'Girls in STEM Mentorship."
 
-- title: "Graduate Research Fellowship"
-  organization: "Example Foundation"
+- title: "Laedership Award"
+  organization: "Africa Scientique in Partnership with AIMS South Africa"
   year: 2023
   type: "fellowship"
-  description: "Three-year fellowship supporting PhD research."
+  description: "For outstanding leadership potential."
 
 - title: "Dean's List"
-  organization: "University of Sample"
-  year: "2018 – 2022"
+  organization: "Machakos University"
+  year: "2023 – 2024"
   type: "scholarship"
+  description: "For outstanding academic performance in the BSc Electrical and Electronic Engineering program."
+
+- title: "Election chairperson of Machakos University Students Association"
+  organization: "Machakos University"
+  year: 2024
+  type: "honor"
+  description: "For outstanding service to the student body and being the first woman chairperson to be elected and conducted free and fair elections."
