@@ -11,11 +11,11 @@ profile:
   affiliation: "University of Cape Town"
   email: "ayakolavender8@gmail.com"       # Shown as a contact link (leave "" to hide)
   location: "Kenya, available for relocation"       # Optional
-  photo: "assets/picture.jpg"         # Put your photo in public/assets/ and point
+  photo: "assets/Helmet passport.png"         # Put your photo in public/assets/ and point
                                       # here, e.g. "assets/profile.jpg". Leave "" to hide.
 
 # One-line summary of your research, shown large on the home page.
-tagline: "I design power systems and analyze their performance using computational methods to solve the real world problems in energy sector, I am passionate about creating sustainable solutions. I am actively seeking job opportunities research opportunities in the field of power systems, renewable energy, and grid optimization."
+tagline: "I design power systems and analyze their performance using computational methods to solve the real world problems in energy sector, I am passionate about creating sustainable solutions. I am actively seeking job opportunities and research opportunities in the field of power systems, renewable energy, and grid optimization."
 
 
 # Optional CV. Drop a PDF in public/assets/ and reference it here. Leave "" to hide the button.
