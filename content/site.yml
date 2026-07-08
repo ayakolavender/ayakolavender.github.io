@@ -56,7 +56,7 @@ social:
 # -----------------------------------------------------------------------------
 sections:
   - id: publications   # content/publications.yml
-    enabled: false
+    enabled: true
   - id: talks          # content/talks.yml
     enabled: true
     label: "Talks"
