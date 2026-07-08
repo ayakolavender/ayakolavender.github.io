@@ -26,7 +26,6 @@
     #arxiv: "https://arxiv.org/abs/0000.00000"
     #code: "https://github.com/example/faithful-explanations"
 
-- #title: "Causal Probing of Learned Representations"
   #authors:
     #- "John Doe"
     #- "Priya Nair"
@@ -41,8 +40,8 @@
    # pdf: "#"
     #doi: "10.1000/tmlr.example"
     #code: "https://github.com/example/causal-probing"
+ #- title: "Causal Probing of Learned Representations"
 
-- #title: "On the Reliability of Post-hoc Explanation Methods"
   #authors:
     #- "Sam Lee"
     #- "John Doe"
@@ -57,8 +56,8 @@
   #links:
     #pdf: "#"
     #poster: "#"
+ #- title: "On the Reliability of Post-hoc Explanation Methods"
 
-- #title: "Efficient Fine-tuning for Low-resource Languages"
   #authors:
     #- "Priya Nair"
     #- "John Doe"
@@ -71,3 +70,4 @@
   #links:
     #pdf: "#"
     #arxiv: "https://arxiv.org/abs/0000.00000"
+ #- title: "Efficient Fine-tuning for Low-resource Languages"
