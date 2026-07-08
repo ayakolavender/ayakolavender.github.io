@@ -4,27 +4,26 @@
 #  `type` controls the icon: award | publication | talk | news (default).
 # =============================================================================
 
-- date: 2026-05-01
-  title: "Paper accepted to ICML 2026"
-  description: "Our work on faithful explanations for transformers was accepted to ICML 2026."
-  type: publication
+- date: 2026-07-03
+  title: "Invited to organize Deep Learning IndabaX Kenya"
+  description: "Organizing a group of 600 attendees by attending to registration, designing name tags and ensuring they are in logistics order"
+  type: conference
 
 - date: 2026-03-15
-  title: "Invited talk at the University of Example ML Seminar"
-  description: "Presented recent work on interpretable representations to the department."
+  title: "Invited talk at the Vaal University of Technology, South Africa"
+  description: "Presented recent work on flood management using Maths during National Science Month."
   type: talk
 
-- date: 2026-01-20
+- date: 2026-07-15
   title: "Received the Departmental Research Excellence Award"
   type: award
 
-- date: 2025-11-10
-  title: "Started a research internship at Example Labs"
-  description: "Spending the winter working on reliable evaluation of language models."
+- date: 2025-08-10
+  title: "Started Masters in Mathematical Science ,integrating statistics with Engineering"
+  description: "Spending the next years pursuing Masters."
   type: news
 
-- date: 2025-09-02
-  title: "New preprint on causal probing now on arXiv"
-  description: "Feedback welcome!"
-  type: publication
-  link: "https://arxiv.org/abs/0000.00000"
+- date: 2025-11-02
+  title: "Announced the third best in the School of Engineering during the University graduation"
+  description: "Academic of excellence awarded during the graduation"
+  type: award
