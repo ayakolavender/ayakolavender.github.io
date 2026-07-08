@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Oscilloscope Preview</title>
+  <style>
+    :root{--bg:#0b1220;--fg:#9fd6ff;--accent:#60a5fa}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#07101a 0%,#09151f 100%);color:var(--fg)}
+    .wrap{max-width:980px;margin:48px auto;padding:24px}
+    h1{font-size:20px;margin:0 0 12px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;padding:18px;box-shadow:0 6px 20px rgba(2,6,23,.6)}
+    canvas{width:100%;height:220px;border-radius:8px;background:linear-gradient(180deg,rgba(9,18,28,.6),rgba(9,18,28,.4));display:block}
+    .controls{display:flex;gap:12px;align-items:center;margin-top:12px}
+    label{font-size:13px;color:#cfe9ff}
+    input[type=range]{accent-color:var(--accent)}
+    .muted{font-size:13px;color:#7ea9c8}
+    @media (prefers-reduced-motion: reduce){ .muted{opacity:.9} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Oscilloscope Waveform — Preview</h1>
+      <p class="muted">Interactive AC sine wave. Hover to pause. Respects <code>prefers-reduced-motion</code>.</p>
+      <canvas id="scope" width="1200" height="300" role="img" aria-label="Oscilloscope waveform visualization"></canvas>
+
+      <div class="controls" aria-hidden="false">
+        <div>
+          <label>Frequency: <span id="freqVal">60</span> Hz</label>
+          <input id="freq" type="range" min="1" max="200" value="60">
+        </div>
+        <div>
+          <label>Amplitude: <span id="ampVal">0.8</span></label>
+          <input id="amp" type="range" min="0.1" max="1.5" step="0.01" value="0.8">
+        </div>
+        <div>
+          <label>Speed: <span id="speedVal">1</span>x</label>
+          <input id="speed" type="range" min="0.2" max="3" step="0.1" value="1">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const canvas = document.getElementById('scope');
+      const ctx = canvas.getContext('2d');
+      let W = canvas.width, H = canvas.height;
+      const devicePixelRatio = window.devicePixelRatio || 1;
+      function resize(){
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = Math.floor(rect.width * devicePixelRatio);
+        canvas.height = Math.floor(rect.height * devicePixelRatio);
+        ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+        W = rect.width; H = rect.height;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const freqInput = document.getElementById('freq');
+      const ampInput = document.getElementById('amp');
+      const speedInput = document.getElementById('speed');
+      const freqVal = document.getElementById('freqVal');
+      const ampVal = document.getElementById('ampVal');
+      const speedVal = document.getElementById('speedVal');
+
+      let freq = +freqInput.value; let amp = +ampInput.value; let speed = +speedInput.value;
+      freqInput.oninput = ()=>{ freq = +freqInput.value; freqVal.textContent = freq; };
+      ampInput.oninput = ()=>{ amp = +ampInput.value; ampVal.textContent = amp; };
+      speedInput.oninput = ()=>{ speed = +speedInput.value; speedVal.textContent = speed; };
+
+      // draw grid and axis
+      function drawGrid(){
+        ctx.clearRect(0,0,W,H);
+        ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(96,165,250,0.06)';
+        const step = 40; for(let x=0;x<=W;x+=step){ ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+        for(let y=0;y<=H;y+=step){ ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+        // center axis
+        ctx.beginPath(); ctx.lineWidth = 1.5; ctx.strokeStyle = 'rgba(159,214,255,0.14)'; ctx.moveTo(0,H/2); ctx.lineTo(W,H/2); ctx.stroke();
+      }
+
+      let t = 0; let paused=false;
+      canvas.addEventListener('mouseenter', ()=> paused = true);
+      canvas.addEventListener('mouseleave', ()=> paused = false);
+
+      function draw(now){
+        if (prefersReduced){ drawGrid(); drawStatic(); return; }
+        if (!paused) t += (now || 0) * 0.001 * speed;
+        drawGrid();
+        // waveform
+        ctx.beginPath(); ctx.lineWidth = 2.6; ctx.strokeStyle = 'rgba(96,165,250,0.95)';
+        const cycles = 3; // number of visible cycles across canvas
+        for(let x=0;x<=W;x+=2){
+          const pct = x/W;
+          const phase = t * 2 * Math.PI * 0.3; // slow drift
+          const angle = (pct * cycles * 2 * Math.PI * freq/60) + phase;
+          const y = H/2 + Math.sin(angle) * (H*0.18) * amp;
+          if (x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        }
+        ctx.stroke();
+
+        // faint trail glow
+        ctx.beginPath(); ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(96,165,250,0.06)';
+        for(let x=0;x<=W;x+=8){ const pct = x/W; const angle = (pct * cycles * 2 * Math.PI * freq/60) + t*0.6; const y = H/2 + Math.sin(angle) * (H*0.18) * amp; if (x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y); }
+        ctx.stroke();
+
+        requestAnimationFrame(draw);
+      }
+
+      function drawStatic(){
+        // single static frame for reduced-motion users
+        ctx.beginPath(); ctx.lineWidth = 2.6; ctx.strokeStyle = 'rgba(96,165,250,0.95)';
+        for(let x=0;x<=W;x+=2){ const pct = x/W; const angle = (pct * 3 * 2 * Math.PI * freq/60); const y = H/2 + Math.sin(angle) * (H*0.18) * amp; if (x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y); }
+        ctx.stroke();
+      }
+
+      // initial draw
+      drawGrid(); if (prefersReduced) drawStatic(); else requestAnimationFrame(draw);
+
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+/* Subtle, lightweight animation styles for hero, cards, and background.
+   Respects prefers-reduced-motion. Keep overrides minimal to preserve layout. */
+
+:root{
+  --anim-ease: cubic-bezier(.22,.9,.32,1);
+}
+
+/* Global reveal helpers (used by existing 'rise' classes) */
+.anim-reveal{
+  opacity:0;transform:translateY(10px);will-change:opacity,transform;transition:opacity .6s var(--anim-ease),transform .6s var(--anim-ease);
+}
+.anim-reveal.visible{opacity:1;transform:none}
+
+/* Hero floating particles layer */
+.animated-bg{position:fixed;inset:0;pointer-events:none;z-index:0;mix-blend-mode:screen;opacity:.9}
+.animated-bg svg{width:100%;height:100%;display:block}
+
+/* Project / publication card hover polish */
+.card{transition:transform .28s var(--anim-ease),box-shadow .28s var(--anim-ease),filter .28s var(--anim-ease)}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(12,18,30,.08);filter:brightness(1.02)}
+.card:hover::after{opacity:1}
+
+/* soft glow outline */
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 30px rgba(99,102,241,.06);opacity:0;transition:opacity .28s}
+
+/* Button magnetic hover */
+.btn{transition:transform .22s var(--anim-ease),box-shadow .22s var(--anim-ease)}
+.btn:hover{transform:translateY(-3px)}
+
+/* Cursor-aware hover (subtle) */
+.hover-glow{transition:box-shadow .28s,transform .28s}
+.hover-glow:hover{box-shadow:0 6px 18px rgba(99,102,241,.08)}
+
+/* Sine wave for footer/hero */
+.sine-wave{opacity:.65}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .anim-reveal, .card, .btn, .animated-bg, .sine-wave{transition:none;animation:none}
+}

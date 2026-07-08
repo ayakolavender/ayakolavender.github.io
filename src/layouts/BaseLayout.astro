@@ -5,6 +5,7 @@ import { assetUrl, withBase } from '../lib/url';
 import ThemeStyles from '../components/ThemeStyles.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import AnimatedBackground from '../components/AnimatedBackground.astro';
 
 interface Props {
   title?: string;
@@ -36,8 +37,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
     <meta name="twitter:card" content={img ? 'summary_large_image' : 'summary'} />
     <link rel="canonical" href={canonical} />
     <ThemeStyles />
+    <link rel="stylesheet" href="/assets/css/animations.css" />
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="/assets/js/animations.js" defer></script>
   </head>
   <body>
+    <AnimatedBackground />
     <a
       href="#main"
       class="sr-only rounded-md bg-accent px-4 py-2 text-accent-text focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60]"

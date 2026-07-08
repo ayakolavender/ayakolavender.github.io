@@ -1,0 +1,36 @@
+---
+// Pure presentational background SVG. Kept accessible and inert.
+---
+<div class="animated-bg" aria-hidden="true">
+  <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img">
+    <defs>
+      <linearGradient id="g1" x1="0" x2="1">
+        <stop offset="0%" stop-color="#6EE7B7" stop-opacity="0.06"/>
+        <stop offset="100%" stop-color="#60A5FA" stop-opacity="0.06"/>
+      </linearGradient>
+      <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="20" result="b"/>
+        <feBlend in="SourceGraphic" in2="b" mode="screen"/>
+      </filter>
+    </defs>
+
+    <!-- faint grid lines -->
+    <g stroke="#94a3b8" stroke-opacity=".03" stroke-width="1">
+      <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+        <path d="M80 0 L0 0 0 80" fill="none"/>
+      </pattern>
+      <rect width="100%" height="100%" fill="url(#grid)"/>
+    </g>
+
+    <!-- flowing particles -->
+    <g filter="url(#soft)">
+      <circle class="p1" cx="180" cy="140" r="6" fill="url(#g1)" opacity=".9" />
+      <circle class="p2" cx="420" cy="360" r="5" fill="url(#g1)" opacity=".85" />
+      <circle class="p3" cx="800" cy="220" r="8" fill="url(#g1)" opacity=".8" />
+      <circle class="p4" cx="1260" cy="520" r="4" fill="url(#g1)" opacity=".75" />
+    </g>
+
+    <!-- a subtle sine wave near bottom -->
+    <path class="sine-wave" d="M0 760 C200 720 400 800 600 760 C800 720 1000 800 1200 760 C1400 720 1600 800 1800 760" stroke="#60a5fa" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-opacity=".06"/>
+  </svg>
+</div>
