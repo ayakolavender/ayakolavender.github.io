@@ -18,7 +18,7 @@ const isActive = (path: string) => {
   return here === p || here.startsWith(p + '/');
 };
 ---
-<header class="sticky top-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md">
+<header class="site-header sticky top-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md transition-all duration-300">
   <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-3.5">
     <a href={homeHref} class="font-serif text-lg font-bold tracking-tight transition hover:text-accent">
       {brand}

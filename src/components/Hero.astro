@@ -15,7 +15,18 @@ const p = site.profile;
 const photo = home.showPhoto ? p.photo : undefined;
 const cv = site.cv ? assetUrl(site.cv) : undefined;
 ---
-<section class="pt-12 pb-8 md:pt-16">
+<section class="relative overflow-hidden pt-12 pb-8 md:pt-16">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="hero-decorations" aria-hidden="true">
+      <span class="pulse-node pulse-node-1"></span>
+      <span class="pulse-node pulse-node-2"></span>
+      <span class="pulse-node pulse-node-3"></span>
+      <span class="pulse-node pulse-node-4"></span>
+      <span class="circuit-line circuit-line-1"></span>
+      <span class="circuit-line circuit-line-2"></span>
+      <span class="circuit-line circuit-line-3"></span>
+    </div>
+  </div>
   <div class="grid items-center gap-10 md:grid-cols-[1.5fr_1fr]">
     <div>
       {home.greeting && <p class="eyebrow rise mb-3">{home.greeting}</p>}
@@ -35,12 +46,12 @@ const cv = site.cv ? assetUrl(site.cv) : undefined;
       )}
       <div class="rise rise-4 mt-7 flex flex-wrap items-center gap-3">
         {showPublications && (
-          <a class="btn btn-primary" href={pathFor('publications')}>
+          <a class="btn btn-primary hover-glow" href={pathFor('publications')}>
             <Icon name="book-open" size={18} /> Publications
           </a>
         )}
         {cv && (
-          <a class="btn btn-ghost" href={cv} target="_blank" rel="noopener noreferrer">
+          <a class="btn btn-ghost hover-glow" href={cv} target="_blank" rel="noopener noreferrer">
             <Icon name="download" size={18} /> Download CV
           </a>
         )}

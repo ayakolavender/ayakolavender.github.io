@@ -15,8 +15,23 @@
 .animated-bg{position:fixed;inset:0;pointer-events:none;z-index:0;mix-blend-mode:screen;opacity:.9}
 .animated-bg svg{width:100%;height:100%;display:block}
 
+.hero-decorations{position:absolute;inset:0;overflow:hidden}
+.hero-decorations .pulse-node,
+.hero-decorations .circuit-line{position:absolute;pointer-events:none}
+.pulse-node{border-radius:9999px;background:radial-gradient(circle,rgba(96,165,250,.45),transparent 55%);opacity:.7;animation:pulse 4.5s ease-in-out infinite}
+.pulse-node-1{width:64px;height:64px;top:18%;left:12%;animation-delay:0s}
+.pulse-node-2{width:42px;height:42px;top:34%;left:68%;animation-delay:1.2s}
+.pulse-node-3{width:52px;height:52px;top:65%;left:22%;animation-delay:2.1s}
+.pulse-node-4{width:36px;height:36px;top:56%;left:78%;animation-delay:3.2s}
+.circuit-line{background:linear-gradient(90deg,rgba(96,165,250,0),rgba(96,165,250,.24),rgba(96,165,250,0));height:2px;opacity:.45;animation:lineFlow 6s linear infinite}
+.circuit-line-1{width:220px;top:30%;left:10%;animation-duration:7s}
+.circuit-line-2{width:160px;top:52%;left:18%;animation-duration:5.5s}
+.circuit-line-3{width:260px;top:76%;left:14%;animation-duration:8.2s}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.25);opacity:.18}}
+@keyframes lineFlow{0%{transform:translateX(-15px)}100%{transform:translateX(15px)}}
+
 /* Project / publication card hover polish */
-.card{transition:transform .28s var(--anim-ease),box-shadow .28s var(--anim-ease),filter .28s var(--anim-ease)}
+.card{position:relative;overflow:hidden;transition:transform .28s var(--anim-ease),box-shadow .28s var(--anim-ease),filter .28s var(--anim-ease)}
 .card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(12,18,30,.08);filter:brightness(1.02)}
 .card:hover::after{opacity:1}
 
@@ -24,8 +39,33 @@
 .card::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 30px rgba(99,102,241,.06);opacity:0;transition:opacity .28s}
 
 /* Button magnetic hover */
-.btn{transition:transform .22s var(--anim-ease),box-shadow .22s var(--anim-ease)}
-.btn:hover{transform:translateY(-3px)}
+.btn{position:relative;overflow:hidden;transition:transform .22s var(--anim-ease),box-shadow .22s var(--anim-ease);transform:translateZ(0)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(37,99,235,.14)}
+.btn::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(circle at var(--pointer-x,50%) var(--pointer-y,50%),rgba(96,165,250,.18),transparent 38%);opacity:0;transition:opacity .3s ease,transform .3s ease;transform:scale(0.9)}
+.btn:hover::after{opacity:1;transform:scale(1)}
+.btn:focus-visible{box-shadow:0 0 0 4px rgba(96,165,250,.18)}
+
+/* Header scroll state */
+.site-header{background-color:rgba(255,255,255,.88);backdrop-filter:blur(14px);}
+.site-header.scrolled{background-color:rgba(255,255,255,.98);box-shadow:0 18px 45px rgba(15,23,42,.08);border-color:rgba(148,163,184,.25)}
+:where(.dark) .site-header{background-color:rgba(15,23,42,.84)}
+:where(.dark) .site-header.scrolled{background-color:rgba(15,23,42,.96);box-shadow:0 18px 45px rgba(0,0,0,.22);}
+
+/* Hero decorative motion */
+.hero-decorations{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-decorations .pulse-node,
+.hero-decorations .circuit-line{position:absolute;pointer-events:none}
+.pulse-node{border-radius:9999px;background:radial-gradient(circle,rgba(37,99,235,.32),transparent 52%);opacity:.9;animation:pulse 4.5s ease-in-out infinite}
+.pulse-node-1{width:64px;height:64px;top:18%;left:8%;animation-delay:0s}
+.pulse-node-2{width:48px;height:48px;top:28%;left:72%;animation-delay:1.3s}
+.pulse-node-3{width:54px;height:54px;top:64%;left:16%;animation-delay:2.4s}
+.pulse-node-4{width:38px;height:38px;top:58%;left:82%;animation-delay:3.1s}
+.circuit-line{background:linear-gradient(90deg,rgba(37,99,235,0),rgba(37,99,235,.25),rgba(37,99,235,0));height:2px;opacity:.35;animation:lineFlow 6s linear infinite}
+.circuit-line-1{width:220px;top:32%;left:10%;animation-duration:7.2s}
+.circuit-line-2{width:170px;top:54%;left:18%;animation-duration:6s}
+.circuit-line-3{width:240px;top:74%;left:14%;animation-duration:8.6s}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.25);opacity:.18}}
+@keyframes lineFlow{0%{transform:translateX(-14px)}100%{transform:translateX(14px)}}
 
 /* Cursor-aware hover (subtle) */
 .hover-glow{transition:box-shadow .28s,transform .28s}
