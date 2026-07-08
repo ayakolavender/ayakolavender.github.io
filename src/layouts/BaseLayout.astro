@@ -27,7 +27,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={withBase('/icon.jpg')} type="image/jpeg" />
     <title>{pageTitle}</title>
     {desc && <meta name="description" content={desc} />}
     <meta property="og:title" content={pageTitle} />
