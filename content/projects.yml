@@ -5,39 +5,46 @@
 #  `links:` accepts: code, demo, paper, website, data, project, video, slides.
 # =============================================================================
 
-- name: "Faithful Explanations Toolkit"
+- name: "Quantifying the impact of extreme wind speed on wind turbine performance using generalized extreme value distribution: A case study of South African wind farms"
   description: >
-    A research project and open-source library for generating faithful,
-    certifiably-correct explanations of transformer predictions. Foundation of
-    our ICML 2026 paper.
+    A research project investigating the effects of extreme wind speeds on wind turbine performance using generalized extreme value distribution and identifying potential risks and mitigation strategies for wind energy systems in South Africa. I conducted a comprehensive analysis of wind speed data, developed statistical models, and evaluated the performance of wind turbines under extreme conditions. The findings contribute to the understanding of wind energy systems' resilience and inform decision-making for sustainable energy development.
   role: "Lead researcher and maintainer"
   year: 2026
   featured: true
-  tags: ["Research", "Python", "Interpretability"]
+  tags: ["Research", "Python", "Interpretability"," Renewable Energy","R Studio"]
   links:
-    code: "https://github.com/example/faithful-explain"
+    code: "https://github.com/ayakolavender/Wind-Resource-Assessment-and-Wind-Turbine-Performance-in-South-Africa"
     paper: "#"
     demo: "#"
 
-- name: "ProbeBench Dataset"
+- name: "50 kW DC Generator System for Home Use"
   description: >
-    A curated benchmark and dataset for evaluating causal probing methods on
-    neural representations, with reproducible baselines.
+    Designed and simulated a standalone DC generator system with energy storage for domestic applications..
   role: "Creator"
   year: 2025
   featured: true
-  tags: ["Dataset", "Benchmark"]
+  tags: ["Dataset", "Benchmark", "Python", "Renewable Energy","Matlab","Simulink"]
   links:
     data: "#"
     website: "#"
 
-- name: "ML Math Notes"
+- name: "GSM-based Automatic fault detection of three phase transmission line "
   description: >
-    Free, community-driven lecture notes on the mathematics behind modern
-    machine learning, aimed at first-year graduate students.
-  role: "Author"
-  year: 2024
-  tags: ["Education", "Outreach"]
+    Developed a GSM-based automatic fault detection system for three-phase transmission lines, enabling real-time monitoring and rapid response to faults in power transmission networks.Sending and receiving messages indicating the fault location and type, allowing for prompt maintenance and minimizing downtime.
+  role: "Creator"
+  year: 2025
+  tags: ["power systems", "project", "Python", "Renewable Energy","Matlab","Simulink"]
   links:
     website: "#"
-    code: "https://github.com/example/ml-math-notes"
+    code: "https://github.com/ayakolavender?tab=projects"
+
+- name: "Girls in STEM Mentorship Program"
+  description: >
+    I Got a project grant from IEEE to Mentor high school students from underrepresented backgrounds in STEM fields, providing guidance, support, and resources to help them pursue their interests and excel in science, technology, engineering, and mathematics.
+  role: "Mentor"
+  year: 2025
+  tags: ["Mentorship", "Outreach", "STEM Education"]
+  links:
+    website: "#"
+
+
