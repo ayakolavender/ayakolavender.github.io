@@ -4,26 +4,32 @@
 #  Fields: image (required), caption (optional), alt (optional but recommended).
 # =============================================================================
 
-- image: "assets/gallery/photo-1.svg"
-  caption: "Presenting at ICML 2026"
-  alt: "Speaker at a podium during a conference talk"
+- image: "assets/gallery/digiskills.jpeg"
+  caption: "Presenting at Digiskills 2026"
+  alt: "Presenting at Digiskills conference on my research on renewable energy and power systems"
 
-- image: "assets/gallery/photo-2.svg"
-  caption: "The Trustworthy ML Lab"
-  alt: "Research group gathered in a lab space"
+- image: "assets/gallery/Youth Energy summit.jpeg"
+  caption: "Interogating a panelist at Youth Energy Summit 2026"
+  alt: "Interogating a panelist at Youth Energy Summit 2026 on the role of youth in clean energy transition"
 
-- image: "assets/gallery/photo-3.svg"
-  caption: "Poster session, NeurIPS 2024"
-  alt: "Researcher beside a conference poster"
+- image: "assets/gallery/science month.jpeg"
+  caption: "Poster session at NationalScience Month 2026 hosted by Vaal University of Technology, South Africa"
+  alt: "Poster session at NationalScience Month 2026 hosted by Vaal University of Technology, South Africa on my research on renewable energy and power systems"
 
-- image: "assets/gallery/photo-4.svg"
-  caption: "Mentoring at Code Forward"
-  alt: "Teaching a programming session to students"
+- image: "assets/gallery/Women in Energy Summit.jpeg"
+  caption: "Presenting at Women in Energy Summit 2026"
+  alt: "Presenting at Women in Energy Summit 2026"
 
-- image: "assets/gallery/photo-5.svg"
-  caption: "Fieldwork and collaboration"
-  alt: "Collaborators working together at a whiteboard"
+- image: "assets/gallery/National Science Month.jpeg"
+  caption: "Poster session on flood management at National Science Month 2026 hosted by Vaal University of Technology, South Africa"
+  alt: "Poster session on flood management at National Science Month 2026 hosted by Vaal University of Technology, South Africa"
 
-- image: "assets/gallery/photo-6.svg"
-  caption: "Graduation day"
-  alt: "Celebrating at a graduation ceremony"
+- image: "assets/gallery/Hackathon Presenattion.jpeg"
+  caption: "Presenting at AIMS Hackathon 2026"
+  alt: "pitching ideas at AIMS Hackathon 2026 on live dashboard for betting companies to reduce risk of loss and improve performance using AI and data analytics"
+
+- image: "assets/gallery/Africa Scientifique.jpeg"
+  caption: "Presenting at my project at Africa Scientifique 2026"
+  alt: "Presenting at Africa Scientifique 2026"
+
+
