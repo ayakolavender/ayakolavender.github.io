@@ -25,7 +25,7 @@ cv: "assets/Lavenders_CV.pdf"
 #  Links to your profiles. Delete any you don't use (only filled-in ones show).
 # -----------------------------------------------------------------------------
 social:
-  linkedin: "www.linkedin.com/in/lavenderayako"
+  linkedin: "https://www.linkedin.com/in/lavenderayako/"
   github: "https://github.com/ayakolavender"
   #scholar: "https://scholar.google.com/citations?user=example"
   facebook: "https://www.facebook.com/lavenderayako"
@@ -56,7 +56,7 @@ social:
 # -----------------------------------------------------------------------------
 sections:
   - id: publications   # content/publications.yml
-    enabled: true
+    enabled: false
   - id: talks          # content/talks.yml
     enabled: true
     label: "Talks"
@@ -76,7 +76,7 @@ footer:
   showThemeToggle: true
 
 seo:
-  description: "Personal academic website of Lavender Ayako."
+  description: "Personal academic/professional website of Lavender Ayako."
   # image: "assets/profile.svg"   # Optional social-share preview image
 
 # -----------------------------------------------------------------------------
