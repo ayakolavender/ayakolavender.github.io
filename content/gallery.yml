@@ -19,6 +19,11 @@
 - image: "assets/gallery/Women In Energy Summit.jpeg"
   caption: "Presenting at Women in Energy Summit 2026"
   alt: "Presenting at Women in Energy Summit 2026"
+  
+- image: "assets/gallery/MISG.jpeg"
+  caption: "Lecturing at Mathematical Industrial Study Group (MISG) 2026"
+  alt: "Lecturing on Wind energy,Betz model at Mathematical Industrial Study Group (MISG) 2026"
+
 
 - image: "assets/gallery/National Science Month.jpeg"
   caption: "Poster session on flood management at National Science Month 2026 hosted by Vaal University of Technology, South Africa"
@@ -47,10 +52,6 @@
 - image: "assets/gallery/Girls mentorship.jpg"
   caption: "Mentoring young girls in STEM"
   alt: "Mentoring young girls in STEM"
-
-- image: "assets/gallery/MISG.jpeg"
-  caption: "Lecturing at Mathematical Industrial Study Group (MISG) 2026"
-  alt: "Lecturing on Wind energy,Betz model at Mathematical Industrial Study Group (MISG) 2026"
 
 
 
