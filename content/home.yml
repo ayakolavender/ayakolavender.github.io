@@ -38,6 +38,6 @@ publicationsCount: 3    # how many featured publications to show on the home pag
 cta:
   show: true
   title: "Want to work together?"
-  text: "I'm always open to collaborating on research projects, papers, and new ideas. Get in touch."
+  text: "I'm always open to collaborating on research projects,job opportunities, papers, and new ideas. Get in touch."
   buttonLabel: "Send an Email"
   # email: ""           # defaults to your site.yml email
