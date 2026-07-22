@@ -27,3 +27,8 @@
   title: "Announced the third best in the School of Engineering during the University graduation"
   description: "Academic of excellence awarded during the graduation"
   type: award
+
+- date: 2026-07-19
+  title: "Graduated with Masters in Mathematical Science intergrating statistics with Electrical Engineering"
+  description: "Graduation ceremony held at the University of Capetown, South Africa"
+  type: conference
